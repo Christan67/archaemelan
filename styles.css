@@ -224,3 +224,13 @@ main {
     grid-template-columns: 1fr;
   }
 }
+.products {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.product img {
+  width: 200px;   /* change this if you want smaller/bigger */
+  height: auto;
+}
