@@ -52,6 +52,32 @@ body {
 .btn { text-decoration: none; background: var(--eggplant); color: white; padding: 15px 35px; letter-spacing: 3px; font-weight: bold; transition: 0.3s; display: inline-block; }
 .btn:hover { background: var(--charcoal); transform: scale(1.05); }
 
+.library-hero {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.library-text {
+    max-width: 800px;
+    text-align: center;
+}
+
+.library-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-style: italic;
+    margin-bottom: 10px;
+    color: var(--eggplant);
+}
+
+.library-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--charcoal);
+}
+
 /* --- HOMEPAGE INTERACTIVE CATEGORIES --- */
 .category-preview { 
     display: flex; gap: 40px; padding: 40px; 
