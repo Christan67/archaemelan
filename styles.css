@@ -1,6 +1,6 @@
 :root {
     --eggplant: #3B0B2E;        /* Primary [cite: 21] */
-    --sandstone: #D6C6A8;       /* Background [cite: 23] */
+    --sandstone: #D6C6A8;       /* Background [cite: 25] */
     --sage: #8A9A8A;            /* Accents [cite: 26] */
     --charcoal: #2F2F2F;        /* Outlines [cite: 28] */
     --dark-charcoal: #1E1E1E;   /* Text [cite: 29] */
@@ -10,53 +10,69 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background-color: var(--sandstone); /* [cite: 31] */
-    color: var(--dark-charcoal); /* [cite: 34] */
-    overflow-x: hidden;
+    background-color: var(--sandstone);
+    color: var(--dark-charcoal);
+    overflow-x: hidden; /* Critical for hiding sidebar overflow */
 }
 
-/* --- INTRO ANIMATION --- */
+/* --- THE COOLER INTRO --- */
 #intro-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background: var(--eggplant);
     z-index: 9999;
     display: flex; justify-content: center; align-items: center;
-    animation: slideUp 1s cubic-bezier(0.85, 0, 0.15, 1) forwards 2.5s;
+    animation: slideUp 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards 2.2s;
 }
 
 .intro-content h1 {
     color: var(--sandstone);
-    font-size: 3rem;
-    letter-spacing: 15px;
+    font-size: 3.5rem;
+    letter-spacing: 20px;
+    text-transform: uppercase;
     opacity: 0;
-    animation: revealText 1.5s ease-out forwards 0.5s;
+    animation: revealText 1.2s ease-out forwards 0.5s;
 }
 
 @keyframes revealText {
-    0% { opacity: 0; letter-spacing: 25px; transform: scale(0.9); }
-    100% { opacity: 1; letter-spacing: 10px; transform: scale(1); }
+    to { opacity: 1; letter-spacing: 12px; }
 }
 
-@keyframes slideUp { to { transform: translateY(-100%); visibility: hidden; } }
+@keyframes slideUp {
+    to { transform: translateY(-100%); visibility: hidden; }
+}
 
-/* --- NAVIGATION --- */
+/* --- NO-PEEKING SIDEBAR --- */
 .side-nav {
     position: fixed;
-    top: 0; right: -320px;
-    width: 300px; height: 100%;
+    top: 0; 
+    right: 0; 
+    width: 300px; 
+    height: 100%;
     background: var(--eggplant);
     z-index: 1000;
-    transition: transform 0.5s ease;
+    /* This moves it exactly 100% of its own width off-screen */
+    transform: translateX(100%); 
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 80px 20px;
 }
-.side-nav.open { transform: translateX(-320px); }
-.side-nav ul { list-style: none; padding: 0; }
-.side-nav a { color: var(--sandstone); text-decoration: none; display: block; padding: 15px; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
 
+.side-nav.open {
+    transform: translateX(0); /* Slides perfectly into view */
+}
+
+.side-nav a { 
+    color: var(--sandstone); 
+    text-decoration: none; 
+    display: block; 
+    padding: 15px; 
+    font-size: 1.2rem; 
+    border-bottom: 1px solid rgba(255,255,255,0.1); 
+}
+
+/* --- HEADER & CENTERED LOGO --- */
 .site-header {
-    background: var(--eggplant); /* [cite: 32] */
-    color: var(--white);
+    background: var(--eggplant);
     padding: 15px 20px;
 }
 
@@ -66,42 +82,59 @@ body {
     align-items: center; 
 }
 
-.menu-btn { justify-self: start; background: transparent; border: 1px solid var(--white); color: var(--white); font-size: 24px; padding: 5px 12px; cursor: pointer; }
+.menu-btn { 
+    justify-self: start;
+    background: transparent; 
+    border: 1px solid var(--white); 
+    color: var(--white); 
+    font-size: 24px; 
+    padding: 5px 12px; 
+    cursor: pointer; 
+}
 
 .logo-container { justify-self: center; }
-.logo-container img { height: 55px; width: auto; display: block; }
+.logo-container img { height: 50px; width: auto; display: block; }
 
-/* --- CLOTHING GRID (Side by Side) --- */
+/* --- REPLACING BROKEN IMAGE SPACE --- */
+.hero-accent {
+    width: 100%;
+    max-width: 800px;
+    height: 250px;
+    background: var(--sage); /* Relevant Sage Green accent  */
+    margin: 20px auto;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Structural decorative lines (Architectural/Clothing theme) */
+.hero-accent::after {
+    content: "";
+    width: 80%;
+    height: 1px;
+    background: rgba(255,255,255,0.3);
+}
+
+/* --- CLOTHING GRID --- */
 .products {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 20px;
 }
 
-.product { 
-    text-align: center; 
-    width: 200px; /* Fixed width for shirts */
-}
-
-.product img { 
-    width: 200px; 
-    height: auto; 
-    border-radius: 4px; 
-    border: 1px solid var(--charcoal); 
-}
-
-/* --- HOME CONTENT --- */
-main { max-width: 1200px; margin: 0 auto; padding: 20px; }
-
-.hero { text-align: center; padding: 40px 0; }
-.hero img { width: 100%; max-width: 900px; border-radius: 8px; margin: 20px 0; }
+.product { text-align: center; width: 200px; }
+.product img { width: 200px; height: auto; border-radius: 4px; border: 1px solid var(--charcoal); }
 
 .info-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    padding: 20px;
 }
 
 .info-cards article {
@@ -111,6 +144,13 @@ main { max-width: 1200px; margin: 0 auto; padding: 20px; }
     border-top: 5px solid var(--sage);
 }
 
-.btn { background: var(--eggplant); color: var(--white); padding: 15px 30px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 10px; }
+.btn { 
+    background: var(--eggplant); 
+    color: var(--white); 
+    padding: 15px 30px; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-weight: bold; 
+}
 
-.site-footer { background: var(--charcoal); color: var(--white); text-align: center; padding: 30px; margin-top: 50px; }
+.site-footer { background: var(--charcoal); color: var(--white); text-align: center; padding: 30px; }
