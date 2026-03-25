@@ -1,145 +1,99 @@
 :root {
-    --eggplant: #3B0B2E;        /* Primary [cite: 21] */
-    --sandstone: #D6C6A8;       /* Neutral Background [cite: 23, 25] */
-    --sage: #8A9A8A;            /* Accents [cite: 26] */
-    --charcoal: #2F2F2F;        /* Outlines [cite: 28] */
-    --dark-charcoal: #1E1E1E;   /* Text [cite: 29, 34] */
+    --eggplant: #3B0B2E;        /* [cite: 21] */
+    --sandstone: #D6C6A8;       /* [cite: 23, 25] */
+    --sage: #8A9A8A;            /* [cite: 26] */
+    --charcoal: #2F2F2F;        /* [cite: 28] */
+    --dark-charcoal: #1E1E1E;   /* [cite: 29] */
     --white: #ffffff;
 }
 
+* { box-sizing: border-box; }
+
 body {
     margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: var(--sandstone);
-    color: var(--dark-charcoal);
-    overflow-x: hidden; 
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    background-color: var(--sandstone); /* [cite: 31] */
+    color: var(--dark-charcoal); /* [cite: 34] */
+    overflow-x: hidden;
 }
 
-/* --- THE COOLER INTRO --- */
+/* --- THE INTRO (Architectural Reveal) --- */
 #intro-overlay {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0; left: 0; width: 100vw; height: 100vh;
     background: var(--eggplant);
     z-index: 9999;
     display: flex; justify-content: center; align-items: center;
-    animation: slideUp 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards 2.2s;
+    animation: slideAway 1s cubic-bezier(0.8, 0, 0.2, 1) forwards 2s;
 }
-
 .intro-content h1 {
     color: var(--sandstone);
-    font-size: 3.5rem;
-    letter-spacing: 20px;
+    font-size: 3rem;
+    letter-spacing: 12px;
     text-transform: uppercase;
-    opacity: 0;
-    animation: revealText 1.2s ease-out forwards 0.5s;
 }
+@keyframes slideAway { to { transform: translateY(-100%); visibility: hidden; } }
 
-@keyframes revealText {
-    to { opacity: 1; letter-spacing: 12px; }
-}
-
-@keyframes slideUp {
-    to { transform: translateY(-100%); visibility: hidden; }
-}
-
-/* --- NO-PEEKING SIDEBAR --- */
+/* --- SIDEBAR (Hard-Locked Offscreen) --- */
 .side-nav {
     position: fixed;
     top: 0; 
-    right: 0; 
+    right: -350px; /* Physically moved far away */
     width: 300px; 
     height: 100%;
-    background: var(--eggplant);
+    background: var(--eggplant); /* [cite: 32, 48] */
     z-index: 1000;
-    transform: translateX(100%); /* Moves it fully off-screen */
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s ease-in-out;
     padding: 80px 20px;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.2);
 }
-
-.side-nav.open {
-    transform: translateX(0); /* Slides into view */
-}
-
-.side-nav a { 
-    color: var(--sandstone); 
-    text-decoration: none; 
-    display: block; 
-    padding: 15px; 
-    font-size: 1.2rem; 
-    border-bottom: 1px solid rgba(255,255,255,0.1); 
-}
+.side-nav.open { transform: translateX(-350px); } /* Slides exactly into view */
+.side-nav a { color: var(--sandstone); text-decoration: none; display: block; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
 
 /* --- HEADER & CENTERED LOGO --- */
 .site-header {
-    background: var(--eggplant);
+    background: var(--eggplant); /* [cite: 32, 40] */
     padding: 15px 20px;
 }
+.header-top { display: flex; justify-content: space-between; align-items: center; }
+.logo-container { position: absolute; left: 50%; transform: translateX(-50%); }
+.logo-container img { height: 50px; display: block; }
+.menu-btn { background: transparent; border: 1px solid var(--white); color: var(--white); font-size: 24px; cursor: pointer; z-index: 10; }
 
-.header-top { 
-    display: grid; 
-    grid-template-columns: 1fr auto 1fr; 
-    align-items: center; 
-}
-
-.menu-btn { 
-    justify-self: start;
-    background: transparent; 
-    border: 1px solid var(--white); 
-    color: var(--white); 
-    font-size: 24px; 
-    padding: 5px 12px; 
-    cursor: pointer; 
-}
-
-.logo-container { justify-self: center; }
-.logo-container img { height: 50px; width: auto; display: block; }
-
-/* --- BRAND ACCENT BLOCK --- */
+/* --- BRAND ACCENT (Fills empty space) --- */
 .hero-accent {
     width: 100%;
     max-width: 800px;
     height: 250px;
-    background: var(--sage); 
-    margin: 20px auto;
+    background: var(--sage); /* [cite: 36, 46] */
+    margin: 40px auto;
+    display: flex; align-items: center; justify-content: center;
     border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
+.hero-accent span { color: white; letter-spacing: 5px; font-weight: bold; }
 
-/* --- CLOTHING GRID (Side by Side) --- */
+/* --- GRID (Side-by-Side Shirts) --- */
 .products {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
     justify-content: center;
     padding: 20px;
 }
-
-.product { text-align: center; width: 200px; }
-.product img { width: 200px; height: auto; border-radius: 4px; border: 1px solid var(--charcoal); }
+.product { width: 200px; text-align: center; }
+.product img { width: 100%; height: auto; border: 1px solid var(--charcoal); border-radius: 4px; }
 
 .info-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-    padding: 20px;
+    padding: 40px 20px;
 }
-
 .info-cards article {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255,255,255,0.2);
     padding: 30px;
-    border-radius: 12px;
-    border-top: 5px solid var(--sage);
+    border-radius: 8px;
+    border-top: 5px solid var(--sage); /* [cite: 36] */
 }
-
-.btn { 
-    background: var(--eggplant); 
-    color: var(--white); 
-    padding: 15px 30px; 
-    text-decoration: none; 
-    display: inline-block; 
-    font-weight: bold; 
-}
-
-.site-footer { background: var(--charcoal); color: var(--white); text-align: center; padding: 30px; }
+.btn { background: var(--eggplant); color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; display: inline-block; }
+.site-footer { background: var(--charcoal); color: white; text-align: center; padding: 30px; }
