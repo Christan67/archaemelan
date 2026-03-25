@@ -1,9 +1,9 @@
 :root {
-    --eggplant: #3B0B2E;        /* [cite: 21] */
-    --sandstone: #D6C6A8;       /* [cite: 23, 25] */
-    --sage: #8A9A8A;            /* [cite: 26] */
-    --charcoal: #2F2F2F;        /* [cite: 28] */
-    --dark-charcoal: #1E1E1E;   /* [cite: 29] */
+    --eggplant: #3B0B2E;        /* Headers/Nav */
+    --sandstone: #D6C6A8;       /* Main Background */
+    --slate: #4A5D6E;           /* NEW: Sophisticated Accent */
+    --charcoal: #2F2F2F;        /* Outlines */
+    --dark-charcoal: #1E1E1E;   /* Body Text */
     --white: #ffffff;
 }
 
@@ -11,13 +11,13 @@
 
 body {
     margin: 0;
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    background-color: var(--sandstone); /* [cite: 31] */
-    color: var(--dark-charcoal); /* [cite: 34] */
+    font-family: 'Inter', 'Helvetica', sans-serif;
+    background-color: var(--sandstone);
+    color: var(--dark-charcoal);
     overflow-x: hidden;
 }
 
-/* --- THE INTRO (Architectural Reveal) --- */
+/* --- THE INTRO --- */
 #intro-overlay {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
@@ -38,41 +38,56 @@ body {
 .side-nav {
     position: fixed;
     top: 0; 
-    right: -350px; /* Physically moved far away */
+    right: -350px; 
     width: 300px; 
     height: 100%;
-    background: var(--eggplant); /* [cite: 32, 48] */
+    background: var(--eggplant);
     z-index: 1000;
     transition: transform 0.5s ease-in-out;
     padding: 80px 20px;
-    box-shadow: -10px 0 20px rgba(0,0,0,0.2);
 }
-.side-nav.open { transform: translateX(-350px); } /* Slides exactly into view */
+.side-nav.open { transform: translateX(-350px); }
 .side-nav a { color: var(--sandstone); text-decoration: none; display: block; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
 
 /* --- HEADER & CENTERED LOGO --- */
 .site-header {
-    background: var(--eggplant); /* [cite: 32, 40] */
+    background: var(--eggplant);
     padding: 15px 20px;
 }
-.header-top { display: flex; justify-content: space-between; align-items: center; }
-.logo-container { position: absolute; left: 50%; transform: translateX(-50%); }
-.logo-container img { height: 50px; display: block; }
-.menu-btn { background: transparent; border: 1px solid var(--white); color: var(--white); font-size: 24px; cursor: pointer; z-index: 10; }
+.header-top { display: flex; justify-content: space-between; align-items: center; position: relative; }
 
-/* --- BRAND ACCENT (Fills empty space) --- */
+.logo-container { 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+.logo-container img { height: 45px; display: block; }
+
+/* --- CLEAN BURGER MENU (No box) --- */
+.menu-btn { 
+    background: transparent; 
+    border: none; /* REMOVED WHITE BOX */
+    color: var(--white); 
+    font-size: 30px; 
+    cursor: pointer; 
+    z-index: 10;
+    padding: 0;
+}
+
+/* --- NEW SLATE ACCENT (Fills empty space) --- */
 .hero-accent {
     width: 100%;
-    max-width: 800px;
-    height: 250px;
-    background: var(--sage); /* [cite: 36, 46] */
+    max-width: 900px;
+    height: 300px;
+    background: var(--slate); /* Updated appealing accent */
     margin: 40px auto;
     display: flex; align-items: center; justify-content: center;
-    border-radius: 4px;
+    border-radius: 2px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
-.hero-accent span { color: white; letter-spacing: 5px; font-weight: bold; }
+.hero-accent span { color: var(--sandstone); letter-spacing: 8px; font-weight: 300; font-size: 1.2rem; }
 
-/* --- GRID (Side-by-Side Shirts) --- */
+/* --- GRID & CARDS --- */
 .products {
     display: flex;
     flex-wrap: wrap;
@@ -81,19 +96,23 @@ body {
     padding: 20px;
 }
 .product { width: 200px; text-align: center; }
-.product img { width: 100%; height: auto; border: 1px solid var(--charcoal); border-radius: 4px; }
+.product img { width: 100%; height: auto; border: 1px solid var(--charcoal); border-radius: 2px; }
 
 .info-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    gap: 25px;
     padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 .info-cards article {
-    background: rgba(255,255,255,0.2);
-    padding: 30px;
-    border-radius: 8px;
-    border-top: 5px solid var(--sage); /* [cite: 36] */
+    background: rgba(255,255,255,0.25);
+    padding: 35px;
+    border-radius: 4px;
+    border-bottom: 4px solid var(--slate); /* Slate accent bottom */
 }
-.btn { background: var(--eggplant); color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; display: inline-block; }
-.site-footer { background: var(--charcoal); color: white; text-align: center; padding: 30px; }
+.btn { background: var(--eggplant); color: white; padding: 16px 35px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
+.btn:hover { background: var(--slate); color: var(--sandstone); }
+
+.site-footer { background: var(--charcoal); color: white; text-align: center; padding: 40px; margin-top: 50px; }
