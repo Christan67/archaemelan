@@ -8,16 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="intro-overlay">
-        <h1 class="reveal-text" id="revealText">ARCHÆM ÉLAN</h1>
-    </div>
-
+    <div id="intro-overlay"><h1 class="reveal-text" id="revealText">ARCHÆM ÉLAN</h1></div>
     <nav class="side-nav" id="sideNav">
         <a href="index.html">HOME</a>
         <a href="collections.html">COLLECTIONS</a>
         <a href="socials.html">SOCIAL MEDIAS</a>
     </nav>
-
     <header class="site-header">
         <div class="header-top">
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
@@ -25,37 +21,29 @@
             <div style="width: 45px;"></div>
         </div>
     </header>
-
     <main>
         <section class="brand-hero">
             <h1>ARCHÆM ÉLAN</h1>
             <p class="sub-title">Sculpted attire for the modern silhouette</p>
             <a href="collections.html" class="btn">ENTER THE ARCHIVE</a>
         </section>
-
         <section class="info-cards">
             <div class="card"><h3>VANGUARD TEXTILES</h3><p>Curated fabrics designed to maintain structure and movement.</p></div>
             <div class="card"><h3>ELITE RARITY</h3><p>Every garment is part of a numbered, limited-run sequence.</p></div>
             <div class="card"><h3>INNER CIRCLE</h3><p>Follow the evolution from sketch to seam.</p></div>
         </section>
     </main>
-
     <footer class="site-footer"><p>© 2026 ARCHÆM ÉLAN™</p></footer>
-
     <script>
         function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }
-
         const textWrapper = document.getElementById('revealText');
-        const content = "ARCHÆM ÉLAN"; // Explicitly defined for space preservation
-        textWrapper.innerHTML = content.split('').map((char, i) => 
-            `<span style="animation-delay: ${i * 0.12}s">${char === ' ' ? '&nbsp;' : char}</span>`
-        ).join('');
-
+        const content = "ARCHÆM ÉLAN";
+        textWrapper.innerHTML = content.split('').map((char, i) => `<span style="animation-delay: ${i * 0.12}s">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('intro-overlay').style.opacity = '0';
                 setTimeout(() => document.getElementById('intro-overlay').remove(), 1000);
-            }, 2800); 
+            }, 2800);
         });
     </script>
 </body>
