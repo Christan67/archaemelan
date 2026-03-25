@@ -49,28 +49,8 @@ body {
 .brand-hero { text-align: center; padding: 80px 20px; width: 100%; }
 .brand-hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--eggplant); font-style: italic; margin-bottom: 10px; }
 .brand-hero .sub-title { font-size: 1.1rem; letter-spacing: 5px; text-transform: uppercase; color: var(--charcoal); margin-bottom: 30px; }
-.btn { text-decoration: none; background: var(--eggplant); color: white; padding: 15px 35px; letter-spacing: 3px; font-weight: bold; transition: 0.3s; display: inline-block; margin-bottom: 50px;}
+.btn { text-decoration: none; background: var(--eggplant); color: white; padding: 15px 35px; letter-spacing: 3px; font-weight: bold; transition: 0.3s; display: inline-block; }
 .btn:hover { background: var(--charcoal); transform: scale(1.05); }
-
-/* --- CENTERED STUDIO CONCEPT --- */
-.studio-concept {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    padding: 0 20px;
-}
-.studio-concept h2 {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-.studio-concept p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--charcoal);
-    letter-spacing: 1px;
-}
 
 /* --- HOMEPAGE INTERACTIVE CATEGORIES --- */
 .category-preview { 
@@ -78,7 +58,7 @@ body {
     justify-content: center; width: 100%; max-width: 1200px; margin: 0 auto;
 }
 .cat-item { width: 350px; text-align: center; cursor: pointer; transition: transform 0.4s ease; }
-.cat-item:hover { transform: translateY(-15px); } 
+.cat-item:hover { transform: translateY(-15px); } /* Floating interaction restored */
 .cat-item img { 
     width: 100%; height: 480px; object-fit: cover; 
     border: 1px solid var(--eggplant); margin-bottom: 15px; 
@@ -96,19 +76,29 @@ body {
     background: rgba(255, 255, 255, 0.3); padding: 30px; width: 33.33%; 
     border-bottom: 3px solid var(--eggplant); text-align: center; 
 }
+.card h4 { text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+.card p { font-size: 0.9rem; line-height: 1.5; color: var(--charcoal); }
 
 /* --- ARCHIVE GRID (COLLECTIONS) --- */
 .collections-container { max-width: 1300px; width: 95%; margin: 60px auto; text-align: center; }
 .products-grid { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 25px; justify-content: center; margin-bottom: 80px; }
 .product-card { width: 280px; cursor: pointer; transition: transform 0.3s ease; }
+.product-card:hover { transform: translateY(-12px); }
 .product-card img { width: 100%; height: 380px; object-fit: cover; border: 1px solid rgba(59,11,46,0.15); margin-bottom: 15px; background: white; }
+.product-card h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
 
-/* --- MODAL FEATURES --- */
-.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; z-index: 9999; }
-.modal-content { background: var(--sandstone); max-width: 1000px; width: 100%; display: flex; position: relative; overflow: hidden; }
+/* --- MODAL & SHOPPING FEATURES --- */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; z-index: 9999; padding: 20px; }
+.modal-content { background: var(--sandstone); max-width: 1000px; width: 100%; display: flex; border-radius: 2px; position: relative; overflow: hidden; }
+.modal-img { flex: 1.2; background: white; }
+.modal-img img { width: 100%; height: 100%; object-fit: cover; }
 .modal-info { flex: 1; padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+.modal-close { position: absolute; top: 20px; right: 20px; font-size: 35px; cursor: pointer; color: var(--eggplant); z-index: 11; }
 .qty-container { display: flex; align-items: center; gap: 15px; margin: 20px 0; }
-.qty-btn { background: var(--eggplant); color: white; border: none; width: 35px; height: 35px; cursor: pointer; }
+.qty-btn { background: var(--eggplant); color: white; border: none; width: 35px; height: 35px; cursor: pointer; font-size: 1.2rem; }
+#qty-value { font-weight: bold; width: 30px; text-align: center; }
+.size-selector select { width: 100%; padding: 12px; border: 1px solid var(--eggplant); background: transparent; margin-bottom: 20px; font-weight: bold; }
+.modal-actions { display: flex; flex-direction: column; gap: 10px; }
 .buy-now-btn { background: var(--eggplant); color: white; padding: 18px; border: none; font-weight: bold; letter-spacing: 2px; cursor: pointer; }
 .add-cart-btn { background: transparent; color: var(--eggplant); border: 2px solid var(--eggplant); padding: 16px; font-weight: bold; letter-spacing: 2px; cursor: pointer; }
 
