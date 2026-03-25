@@ -29,7 +29,7 @@
     <main>
         <section class="brand-hero">
             <h1>ARCHÆM ÉLAN</h1>
-            <p class="sub-title">Tailoring the New Vanguard</p>
+            <p class="sub-title">Sculpted attire for the modern silhouette</p>
             <a href="collections.html" class="btn">ENTER THE ARCHIVE</a>
         </section>
 
@@ -45,18 +45,17 @@
     <script>
         function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }
 
-        // Spelling out the logo
         const textWrapper = document.getElementById('revealText');
-        const content = textWrapper.textContent;
+        const content = "ARCHÆM ÉLAN"; // Explicitly defined for space preservation
         textWrapper.innerHTML = content.split('').map((char, i) => 
-            `<span style="animation-delay: ${i * 0.1}s">${char}</span>`
+            `<span style="animation-delay: ${i * 0.12}s">${char === ' ' ? '&nbsp;' : char}</span>`
         ).join('');
 
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('intro-overlay').style.opacity = '0';
                 setTimeout(() => document.getElementById('intro-overlay').remove(), 1000);
-            }, 2500); 
+            }, 2800); 
         });
     </script>
 </body>
