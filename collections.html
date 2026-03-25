@@ -22,74 +22,30 @@
     </header>
 
     <main class="collections-container">
-    <h2 class="section-title">THE ARCHIVE</h2>
+        <h2 class="section-title" style="margin: 40px 0; text-align:center; letter-spacing:5px;">THE ARCHIVE</h2>
 
-    <p style="text-align:left; letter-spacing:3px; font-weight:bold; margin-bottom:20px;">SHIRTS</p>
-    <div class="products-grid">
-        <div class="product-card"><img src="grey.jpg"><h3>Charcoal Grey</h3></div>
-        <div class="product-card"><img src="cream.jpg"><h3>Cream</h3></div>
-        <div class="product-card"><img src="black.jpg"><h3>Black</h3></div>
-        <div class="product-card"><img src="old-heliotrope.jpg"><h3>Old Heliotrope</h3></div>
-    </div>
+        <p style="text-align:center; letter-spacing:3px; font-weight:bold; margin-bottom:20px; color:var(--eggplant);">SHIRTS</p>
+        <div class="products-grid">
+            <div class="product-card"><img src="grey.jpg"><h3>Charcoal Grey</h3></div>
+            <div class="product-card"><img src="cream.jpg"><h3>Cream</h3></div>
+            <div class="product-card"><img src="black.jpg"><h3>Black</h3></div>
+            <div class="product-card"><img src="old-heliotrope.jpg"><h3>Old Heliotrope</h3></div>
+        </div>
 
-    <p style="text-align:left; letter-spacing:3px; font-weight:bold; margin-bottom:20px;">HOODIES</p>
-    <div class="products-grid">
-        <div class="product-card"><img src="wht hoodie.jpg"><h3>White Hoodie</h3></div>
-        <div class="product-card"><img src="camou hoodie.jpg"><h3>Camo Hoodie</h3></div>
-        <div class="product-card"><img src="blck hoodie.jpg"><h3>Black Hoodie</h3></div>
-        <div class="product-card"><img src="cropped hoodie.jpg"><h3>Cropped Hoodie</h3></div>
-    </div>
-
-    <div class="brand-pillars">
-        <div class="pillar">
-            <h4>VANGUARD TEXTILES</h4>
-            <p>Curated fabrics designed to maintain structure and movement.</p>
+        <p style="text-align:center; letter-spacing:3px; font-weight:bold; margin: 40px 0 20px; color:var(--eggplant);">HOODIES</p>
+        <div class="products-grid">
+            <div class="product-card"><img src="wht hoodie.jpg"><h3>White Hoodie</h3></div>
+            <div class="product-card"><img src="camou hoodie.jpg"><h3>Camo Hoodie</h3></div>
+            <div class="product-card"><img src="blck hoodie.jpg"><h3>Black Hoodie</h3></div>
+            <div class="product-card"><img src="cropped hoodie.jpg"><h3>Cropped Hoodie</h3></div>
         </div>
-        <div class="pillar">
-            <h4>ELITE RARITY</h4>
-            <p>Every garment is part of a numbered, limited-run sequence.</p>
-        </div>
-        <div class="pillar">
-            <h4>INNER CIRCLE</h4>
-            <p>Follow the evolution from sketch to seam.</p>
-        </div>
-    </div>
-</main>
+        </main>
     
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <div class="modal-img"><img id="modalImg" src=""></div>
-            <div class="modal-info">
-                <h2 id="modalTitle"></h2>
-                <p id="modalDesc"></p>
-                <button class="buy-btn" onclick="addToCart()">ADD TO CART</button>
-            </div>
-        </div>
-    </div>
-
     <footer class="site-footer"><p>© 2026 ARCHÆM ÉLAN™ • Modern Design</p></footer>
 
     <script>
         function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }
-        let selectedProduct = {};
-        function openModal(title, img, desc) {
-            selectedProduct = { title, img };
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalImg').src = img;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('productModal').style.display = 'flex';
-        }
-        function closeModal() { document.getElementById('productModal').style.display = 'none'; }
-        
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        function addToCart() {
-            cart.push(selectedProduct);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            document.getElementById('cart-count').innerText = cart.length;
-            closeModal();
-            alert("Added to cart!");
-        }
         window.onload = () => { document.getElementById('cart-count').innerText = cart.length; };
     </script>
 </body>
