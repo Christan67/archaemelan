@@ -30,7 +30,7 @@
         <section class="brand-hero">
             <h1>ARCHÆM ÉLAN</h1>
             <p class="sub-title">Sculpted attire for the modern silhouette</p>
-            <a href="#shop" class="btn">VIEW ARCHIVE</a>
+            <a href="collections.html" class="btn">ENTER THE ARCHIVE</a>
         </section>
 
         <section class="library-hero">
@@ -40,22 +40,14 @@
             </div>
         </section>
 
-        <section id="shop" class="products">
-            <div class="product" onclick="openModal('Charcoal Grey', 'grey.jpg', 'A deep, versatile shade that balances modern edge with understated sophistication.')">
-                <img src="grey.jpg" alt="Charcoal Grey">
-                <h3>Charcoal Grey</h3>
+        <section class="category-preview">
+            <div class="cat-item" onclick="location.href='collections.html'">
+                <img src="black.jpg" alt="Shirts">
+                <h3>SHIRTS</h3>
             </div>
-            <div class="product" onclick="openModal('Cream', 'cream.jpg', 'Soft and refined, this neutral tone brings effortless warmth to any look.')">
-                <img src="cream.jpg" alt="Cream">
-                <h3>Cream</h3>
-            </div>
-            <div class="product" onclick="openModal('Black', 'black.jpg', 'Timeless and bold, the ultimate staple that pairs seamlessly with everything.')">
-                <img src="black.jpg" alt="Black">
-                <h3>Black</h3>
-            </div>
-            <div class="product" onclick="openModal('Old Heliotrope', 'old-heliotrope.jpg', 'A rich purple hue with vintage character, perfect for standing out subtly.')">
-                <img src="old-heliotrope.jpg" alt="Old Heliotrope">
-                <h3>Old Heliotrope</h3>
+            <div class="cat-item" onclick="location.href='collections.html'">
+                <img src="blck hoodie.jpg" alt="Hoodies">
+                <h3>HOODIES</h3>
             </div>
         </section>
 
@@ -66,56 +58,13 @@
         </section>
     </main>
 
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <div class="modal-img"><img id="modalImg" src=""></div>
-            <div class="modal-info">
-                <h2 id="modalTitle"></h2>
-                <p id="modalDesc"></p>
-                <label>SIZE</label>
-                <select class="size-selector" id="prodSize">
-                    <option>Small</option><option>Medium</option><option>Large</option><option>XL</option>
-                </select>
-                <label>QUANTITY</label>
-                <input type="number" value="1" min="1" class="qty-selector" id="prodQty">
-                <button class="buy-btn" onclick="addToCart()">ADD TO CART</button>
-            </div>
-        </div>
-    </div>
-
     <footer class="site-footer"><p>© 2026 ARCHÆM ÉLAN™ • Modern Design</p></footer>
 
     <script>
         function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }
-
-        // Modal Logic
-        let selectedProduct = {};
-        function openModal(title, img, desc) {
-            selectedProduct = { title, img };
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalImg').src = img;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('productModal').style.display = 'flex';
-        }
-        function closeModal() { document.getElementById('productModal').style.display = 'none'; }
-
-        // Cart Logic
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        function addToCart() {
-            const size = document.getElementById('prodSize').value;
-            const qty = document.getElementById('prodQty').value;
-            cart.push({ ...selectedProduct, size, qty });
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartIcon();
-            closeModal();
-            alert(selectedProduct.title + " added to cart.");
-        }
-        function updateCartIcon() {
-            document.getElementById('cart-count').innerText = cart.length;
-        }
+        function updateCartIcon() { document.getElementById('cart-count').innerText = cart.length; }
 
-        // Intro Logic
         const textWrapper = document.getElementById('revealText');
         const content = "ARCHÆM ÉLAN";
         textWrapper.innerHTML = content.split('').map((char, i) => `<span style="animation-delay: ${i * 0.12}s">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
