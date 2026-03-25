@@ -14,9 +14,9 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--sandstone);
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
-/* Intro Overlay with Spacing */
 #intro-overlay {
     position: fixed;
     inset: 0;
@@ -32,9 +32,9 @@ body {
     color: var(--white);
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
-    letter-spacing: 12px; /* Increased for better clarity */
+    letter-spacing: 12px;
     text-transform: uppercase;
-    white-space: pre; /* Preserves the space between words */
+    white-space: pre;
 }
 
 .reveal-text span {
@@ -45,7 +45,6 @@ body {
 
 @keyframes letterFade { to { opacity: 1; } }
 
-/* Header & Nav */
 .site-header { background: var(--eggplant); padding: 15px 20px; width: 100%; }
 .header-top { display: flex; justify-content: space-between; align-items: center; position: relative; }
 .menu-btn { background: transparent; border: none; color: var(--white); font-size: 32px; cursor: pointer; }
@@ -56,7 +55,6 @@ body {
 .side-nav.open { transform: translateX(0); }
 .side-nav a { color: var(--sandstone); text-decoration: none; display: block; padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); letter-spacing: 2px; }
 
-/* Main Sections */
 main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
 
 .brand-hero { text-align: center; padding: 60px 20px; }
@@ -66,9 +64,14 @@ main { flex: 1; display: flex; flex-direction: column; align-items: center; just
 .info-cards { display: flex; gap: 20px; padding: 40px; justify-content: center; flex-wrap: wrap; }
 .card { background: rgba(255, 255, 255, 0.3); padding: 30px; width: 300px; border-bottom: 3px solid var(--slate); }
 
-/* Socials Specific [Fixes the 'stuck' screen] */
-.social-links { display: flex; flex-direction: column; gap: 20px; margin-top: 30px; }
-.social-btn { border: 1px solid var(--eggplant); color: var(--eggplant); padding: 15px 50px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; transition: 0.3s; }
+.products { display: flex; flex-direction: row; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 40px; max-width: 1200px; margin: 0 auto; }
+.product { width: 160px; text-align: center; }
+.product img { width: 100%; height: auto; margin-bottom: 10px; }
+.product h3 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+
+.social-links { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; align-items: center; }
+.social-btn, .email-btn { border: 1px solid var(--eggplant); color: var(--eggplant); padding: 12px 40px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; width: 250px; text-align: center; transition: 0.3s; }
+.email-btn { background: var(--eggplant); color: var(--white); }
 .social-btn:hover { background: var(--eggplant); color: var(--white); }
 
 .btn { background: var(--eggplant); color: white; padding: 15px 40px; text-decoration: none; font-weight: bold; letter-spacing: 2px; }
