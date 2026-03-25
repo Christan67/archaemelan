@@ -1,118 +1,113 @@
 :root {
-    /* Exact Palette from your PDF Documentation */
-    --eggplant: #3B0B2E;        /* Primary: Headers & Nav [cite: 21, 32] */
-    --soft-sandstone: #D6C6A8;  /* Background: Warm & Clean [cite: 23, 31] */
-    --sage-green: #8A9A8A;      /* Accents: Icons & Decorative [cite: 26, 36] */
-    --charcoal-grey: #2F2F2F;   /* Outlines & Secondary Text [cite: 28, 35] */
-    --dark-charcoal: #1E1E1E;   /* Body Text: Max Readability [cite: 29, 34] */
+    --eggplant: #3B0B2E;
+    --sandstone: #D6C6A8;
+    --sage: #8A9A8A;
+    --charcoal: #2F2F2F;
+    --black: #1E1E1E;
     --white: #ffffff;
-    --transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-* { box-sizing: border-box; }
-
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: var(--soft-sandstone); /* [cite: 31] */
-    color: var(--dark-charcoal); /* [cite: 34] */
-    overflow-x: hidden;
-}
-
-/* --- MODERN INTRO LAYER --- */
+/* --- NEW INTRO & SIDE NAV CSS --- */
 #intro-overlay {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background: var(--eggplant);
     z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--soft-sandstone);
-    animation: fadeOut 1s forwards 3s; /* Stays for 3 seconds */
+    display: flex; justify-content: center; align-items: center;
+    color: var(--sandstone);
+    animation: fadeOut 1s forwards 2.5s;
 }
-
-.intro-content h1 {
-    font-size: clamp(1.5rem, 5vw, 3rem);
-    letter-spacing: 12px;
-    border-right: 3px solid;
-    width: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 2s steps(12) forwards;
-}
-
-/* --- SIDE NAVIGATION --- */
-.side-nav {
-    position: fixed;
-    top: 0;
-    right: -100%; /* Hidden off-screen to the right */
-    width: 300px;
-    height: 100%;
-    background: var(--eggplant); /* [cite: 32] */
-    z-index: 2000;
-    transition: var(--transition);
-    padding: 100px 40px;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.3);
-}
-
-.side-nav.open { right: 0; }
-
-.side-nav ul { list-style: none; padding: 0; }
-.side-nav li { margin: 40px 0; border-bottom: 1px solid var(--charcoal-grey); }
-
-.side-nav a {
-    color: var(--soft-sandstone);
-    text-decoration: none;
-    font-size: 1.2rem;
-    letter-spacing: 3px;
-    display: block;
-    padding-bottom: 10px;
-    transition: 0.3s;
-}
-
-.side-nav a:hover { color: var(--sage-green); padding-left: 10px; }
-
-/* Header & Burger Button */
-.site-header {
-    background: var(--eggplant); /* [cite: 32] */
-    color: var(--white);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.menu-btn {
-    background: none;
-    border: 2px solid var(--soft-sandstone);
-    color: var(--soft-sandstone);
-    font-size: 1.5rem;
-    padding: 5px 12px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: 0.3s;
-    z-index: 2100;
-}
-
-/* Animations */
-@keyframes typing { from { width: 0 } to { width: 100% } }
+.intro-content h1 { font-size: 2.5rem; letter-spacing: 8px; animation: blink 1s infinite; }
 @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
 
-/* Simple Hero Adjustments */
-.hero { 
-    background: var(--white); 
-    padding: 40px; 
-    margin: 20px; 
-    border-radius: 8px; 
-    text-align: center; 
+.side-nav {
+    position: fixed;
+    top: 0; right: -300px;
+    width: 300px; height: 100%;
+    background: var(--eggplant);
+    z-index: 1000;
+    transition: 0.4s ease;
+    padding: 60px 20px;
 }
-.btn { 
-    background: var(--eggplant); 
-    color: var(--white); 
-    padding: 15px 30px; 
-    text-decoration: none; 
-    display: inline-block; 
-    margin-top: 20px;
+.side-nav.open { right: 0; }
+.side-nav ul { list-style: none; padding: 0; }
+.side-nav a { color: var(--sandstone); text-decoration: none; display: block; padding: 15px; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+/* --- REVERTED ORIGINAL STYLES --- */
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    background: var(--sandstone);
+    color: var(--black);
+}
+
+.site-header {
+    background: linear-gradient(180deg, var(--eggplant), var(--charcoal));
+    color: var(--white);
+    padding: 16px 20px;
+}
+
+.header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+
+.menu-btn {
+    background: transparent;
+    border: 1px solid var(--white);
+    color: var(--white);
+    font-size: 20px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.site-nav ul { display: flex; gap: 14px; list-style: none; margin: 0; padding: 0; }
+.site-nav a { color: var(--white); text-decoration: none; font-weight: 700; padding: 6px 10px; }
+.site-nav a.active { background: var(--sage); border-radius: 4px; }
+
+.brand { margin: 12px 0; font-size: 2rem; letter-spacing: 0.08em; }
+
+.search-wrap input {
+    width: 100%; max-width: 320px; padding: 10px;
+    border: 1px solid var(--white); border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1); color: var(--white);
+}
+
+.hero, .info-cards article {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 20px auto;
+    max-width: 1080px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
+}
+
+.hero img { width: 100%; height: auto; border-radius: 10px; margin: 16px 0; }
+
+.info-cards {
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1080px; margin: 20px auto;
+}
+
+.info-cards article { background: #fdfcf9; border-top: 4px solid var(--eggplant); }
+
+.btn {
+    background: var(--eggplant);
+    color: var(--white);
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.site-footer {
+    background: var(--charcoal);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 760px) {
+    .info-cards { grid-template-columns: 1fr; }
+    .site-nav { display: none; } /* Hide horizontal nav on mobile, use burger instead */
 }
