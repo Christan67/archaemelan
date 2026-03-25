@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARCHÆM ÉLAN™ | Clothing Brand</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
 <body>
-    <div id="intro-overlay"><div class="intro-content"><h1>ARCHÆM ÉLAN</h1></div></div>
+    <div id="intro-overlay">
+        <div class="intro-content"><h1>ARCHÆM ÉLAN</h1></div>
+    </div>
 
     <nav class="side-nav" id="sideNav">
         <ul>
@@ -21,33 +15,47 @@
         <div class="header-top">
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
             <div class="logo-container">
-                <img src="logo.svg" alt="ARCHÆM ÉLAN LOGO">
+                <img src="logo.svg" alt="ARCHÆM ÉLAN">
             </div>
             <div style="width: 50px;"></div>
         </div>
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero" style="text-align: center;">
             <h2>ARCHÆM ÉLAN COLLECTION</h2>
-            <img src="https://via.placeholder.com/900x450?text=NEW+APPAREL+DROP" alt="Archæm Élan Clothing">
-            <p>Modern fashion inspired by structural elegance. Minimal design meets luxury streetwear[cite: 9, 14].</p>
+            
+            <div class="hero-accent">
+                <span style="color: white; letter-spacing: 10px; font-weight: 100;">EST. 2026</span>
+            </div>
+
+            <p>Modern fashion inspired by structural elegance. Minimal design meets luxury streetwear.</p>
             <a href="collections.html" class="btn">VIEW COLLECTION</a>
         </section>
 
         <section class="info-cards">
-            <article><h3>Timeless Materials</h3><p>Premium textiles and architectural silhouettes[cite: 9, 16].</p></article>
-            <article><h3>Limited Drops</h3><p>Small batches to preserve exclusivity[cite: 15].</p></article>
-            <article><h3>Connect</h3><p>Follow us for live updates from the runway[cite: 18].</p></article>
+            <article>
+                <h3>Timeless Materials</h3>
+                <p>Premium textiles and architectural silhouettes.</p>
+            </article>
+            <article>
+                <h3>Limited Drops</h3>
+                <p>Small batches to preserve exclusivity.</p>
+            </article>
+            <article>
+                <h3>Connect</h3>
+                <p>Follow us for live updates from the runway.</p>
+            </article>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p>© 2026 ARCHÆM ÉLAN™ • Modern Design [cite: 8]</p>
+        <p>© 2026 ARCHÆM ÉLAN™ • Modern Design</p>
     </footer>
 
     <script>
-        function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }
+        function toggleMenu() {
+            document.getElementById('sideNav').classList.toggle('open');
+        }
     </script>
 </body>
-</html>
