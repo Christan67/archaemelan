@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COLLECTIONS | ARCHÆM ÉLAN™</title>
+    <title>COLLECTIONS | ARCHÆM ÉLAN</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,23 +12,68 @@
         <a href="collections.html">COLLECTIONS</a>
         <a href="socials.html">SOCIAL MEDIAS</a>
     </nav>
+
     <header class="site-header">
         <div class="header-top">
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
             <div class="logo-container"><img src="logo.svg" alt="LOGO"></div>
-            <div style="width: 45px;"></div>
+            <button class="cart-btn" onclick="location.href='cart.html'">🛒 <span id="cart-count">0</span></button>
         </div>
     </header>
+
     <main>
-        <h2 style="text-align: center; margin-top: 50px; letter-spacing: 4px; font-size: 0.8rem; color: #3B0B2E;">THE ARCHIVE</h2>
+        <h2 style="margin-top: 50px; letter-spacing: 5px; color: var(--eggplant);">THE ARCHIVE</h2>
+
+        <h3 style="margin-top: 40px; letter-spacing: 3px;">SHIRTS</h3>
         <section class="products">
-            <div class="product"><img src="grey.jpg" alt="Gray"><h3>Charcoal Gray</h3></div>
-            <div class="product"><img src="cream.jpg" alt="Cream"><h3>Cream</h3></div>
-            <div class="product"><img src="black.jpg" alt="Black"><h3>Black</h3></div>
-            <div class="product"><img src="old-heliotrope.jpg" alt="Heliotrope"><h3>Old Heliotrope</h3></div>
+            <div class="product" onclick="openModal('Charcoal Grey Shirt', 'grey.jpg', 'A deep, versatile shade that balances modern edge with understated sophistication.')"><img src="grey.jpg"><h3>Charcoal Grey</h3></div>
+            <div class="product" onclick="openModal('Cream Shirt', 'cream.jpg', 'Soft and refined, this neutral tone brings effortless warmth to any look.')"><img src="cream.jpg"><h3>Cream</h3></div>
+            <div class="product" onclick="openModal('Black Shirt', 'black.jpg', 'Timeless and bold, the ultimate staple that pairs seamlessly with everything.')"><img src="black.jpg"><h3>Black</h3></div>
+            <div class="product" onclick="openModal('Old Heliotrope Shirt', 'old-heliotrope.jpg', 'A rich purple hue with vintage character, perfect for standing out subtly.')"><img src="old-heliotrope.jpg"><h3>Old Heliotrope</h3></div>
+        </section>
+
+        <h3 style="margin-top: 40px; letter-spacing: 3px;">HOODIES</h3>
+        <section class="products">
+            <div class="product" onclick="openModal('White Hoodie', 'wht hoodie.jpg', 'Pristine and structured, a minimalist essential that commands attention.')"><img src="wht hoodie.jpg"><h3>White Hoodie</h3></div>
+            <div class="product" onclick="openModal('Camo Hoodie', 'camou hoodie.jpg', 'Aggressive patterns met with architectural tailoring for the urban vanguard.')"><img src="camou hoodie.jpg"><h3>Camouflage</h3></div>
+            <div class="product" onclick="openModal('Black Hoodie', 'blck hoodie.jpg', 'Heavyweight density providing a sculpted silhouette in our darkest noir.')"><img src="blck hoodie.jpg"><h3>Black Hoodie</h3></div>
+            <div class="product" onclick="openModal('Cropped Hoodie', 'cropped hoodie.jpg', 'Contemporary proportions designed for layered complexity.')"><img src="cropped hoodie.jpg"><h3>Cropped Hoodie</h3></div>
         </section>
     </main>
-    <footer class="site-footer"><p>© 2026 ARCHÆM ÉLAN™</p></footer>
-    <script>function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }</script>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-img"><img id="modalImg" src=""></div>
+            <div class="modal-info">
+                <h2 id="modalTitle"></h2>
+                <p id="modalDesc"></p>
+                <button class="buy-btn" onclick="addToCart()">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }
+        let selectedProduct = {};
+        function openModal(title, img, desc) {
+            selectedProduct = { title, img };
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalImg').src = img;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('productModal').style.display = 'flex';
+        }
+        function closeModal() { document.getElementById('productModal').style.display = 'none'; }
+        
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        function addToCart() {
+            cart.push(selectedProduct);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            document.getElementById('cart-count').innerText = cart.length;
+            closeModal();
+            alert("Added to cart!");
+        }
+        window.onload = () => { document.getElementById('cart-count').innerText = cart.length; };
+    </script>
 </body>
 </html>
