@@ -3,82 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARCHÆM ÉLAN™ | Collections</title>
+  <title>ARCHÆM ÉLAN™ | Socials</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="overlay"></div>
   <div class="page-wrapper">
     <header class="site-header">
       <div class="header-top">
-        <button class="menu-btn" aria-label="Open navigation">☰</button>
-        <span class="cart">🛒</span>
-        <nav class="site-nav" aria-label="Main">
+        <button class="menu-btn" id="open-menu">☰ MENU</button>
+        <nav class="site-nav" id="side-menu">
+          <button class="close-menu" id="close-menu">&times;</button>
+          <p class="menu-section-title">Primary</p>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="collections.html">New Arrivals</a></li>
-            <li><a href="collections.html">Best Sellers</a></li>
-            <li><a href="collections.html">T-Shirts</a></li>
-            <li><a href="collections.html">Hoodies</a></li>
-            <li><a href="collections.html">Accessories</a></li>
-            <li><a href="socials.html">Contact</a></li>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="collections.html">COLLECTIONS</a></li>
+          </ul>
+          <p class="menu-section-title">Contact</p>
+          <ul>
+            <li><a href="socials.html">EMAIL US</a></li>
           </ul>
         </nav>
       </div>
-      <h1 class="brand">ARCHÆM ÉLAN™</h1>
-      <div class="search-wrap">
-        <input type="search" placeholder="Search..." aria-label="Search website">
-      </div>
+      <h1 class="brand">CONNECT WITH US</h1>
     </header>
 
     <main>
-      <section class="collection">
-        <h2>Our Shirt Collections</h2>
-        <div class="products">
-          <div class="product grey">
-            <h3>Charcoal Gray Shirt</h3>
-            <img src="grey.jpg" alt="Charcoal Gray Shirt">
-          </div>
-          <div class="product cream">
-            <h3>Cream Shirt</h3>
-            <img src="cream.jpg" alt="Cream Shirt">
-          </div>
-          <div class="product black">
-            <h3>Black Shirt</h3>
-            <img src="black.jpg" alt="Black Shirt">
-          </div>
-          <div class="product old-heliotrope">
-            <h3>Old Heliotrope Shirt</h3>
-            <img src="old-heliotrope.jpg" alt="Old Heliotrope Shirt">
-          </div>
-        </div>
+      <section class="social-section">
+        <h2>Follow ARCHÆM ÉLAN™</h2>
+        <p>Instagram: <a href="https://instagram.com/archaem_elan" target="_blank">@archaem_elan</a></p>
+        <p>TikTok: <a href="https://tiktok.com/@archaem.elan" target="_blank">@archaem.elan</a></p>
+      </section>
+
+      <section class="contact-section">
+        <h2>Contact Us</h2>
+        <form action="#">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" required>
+          <label for="message">Message:</label>
+          <textarea id="message" rows="4" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="footer-nav">
-        <a href="index.html">Home</a>
-        <a href="collections.html">Collections</a>
-        <a href="socials.html">Socials</a>
-      </div>
-      <p>© 2026 Shirt Collection. All rights reserved.</p>
+      <p>© 2026 ARCHÆM ÉLAN™</p>
     </footer>
   </div>
 
   <script>
-    const menuBtn = document.querySelector('.menu-btn');
-    const nav = document.querySelector('.site-nav');
-    const overlay = document.querySelector('.overlay');
-
-    menuBtn.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      overlay.classList.toggle('show');
-    });
-
-    overlay.addEventListener('click', () => {
-      nav.classList.remove('open');
-      overlay.classList.remove('show');
-    });
+    document.getElementById('open-menu').onclick = () => document.getElementById('side-menu').classList.add('active');
+    document.getElementById('close-menu').onclick = () => document.getElementById('side-menu').classList.remove('active');
   </script>
 </body>
 </html>
