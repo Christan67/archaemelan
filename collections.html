@@ -1,43 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collections</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHÆM ÉLAN™ | Collections</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Our Shirt Collections</h1>
+  <div class="page-wrapper">
+    <header class="site-header">
+      <div class="header-top">
+        <button class="menu-btn" aria-label="Open navigation">☰</button>
+        <span class="cart">🛒</span>
+        <nav class="site-nav" aria-label="Main">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="collections.html">New Arrivals</a></li>
+            <li><a href="collections.html">Best Sellers</a></li>
+            <li><a href="collections.html">T-Shirts</a></li>
+            <li><a href="collections.html">Hoodies</a></li>
+            <li><a href="collections.html">Accessories</a></li>
+            <li><a href="socials.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <h1 class="brand">ARCHÆM ÉLAN™</h1>
+      <div class="search-wrap">
+        <input type="search" placeholder="Search..." aria-label="Search website">
+      </div>
     </header>
+
     <main>
-        <section class="collection">
-            <h2>Shirt Colors</h2>
-<div class="products">
-    <div class="product grey">
-        <h3>Charcoal Gray Shirt</h3>
-        <img src="grey.jpg" alt="Charcoal Gray Shirt">
-    </div>
-
-    <div class="product cream">
-        <h3>Cream Shirt</h3>
-        <img src="cream.jpg" alt="Cream Shirt">
-    </div>
-
-    <div class="product black">
-        <h3>Black Shirt</h3>
-        <img src="black.jpg" alt="Black Shirt">
-    </div>
-
-    <div class="product old-heliotrope">
-        <h3>Old Heliotrope Shirt</h3>
-        <img src="old-heliotrope.jpg" alt="Old Heliotrope Shirt">
-    </div>
-</div>
-        </section>
+      <section class="collection">
+        <h2>Our Shirt Collections</h2>
+        <div class="products">
+          <div class="product">
+            <h3>Charcoal Gray Shirt</h3>
+            <img src="grey.jpg" alt="Charcoal Gray Shirt">
+          </div>
+          <div class="product">
+            <h3>Cream Shirt</h3>
+            <img src="cream.jpg" alt="Cream Shirt">
+          </div>
+          <div class="product">
+            <h3>Black Shirt</h3>
+            <img src="black.jpg" alt="Black Shirt">
+          </div>
+          <div class="product">
+            <h3>Old Heliotrope Shirt</h3>
+            <img src="old-heliotrope.jpg" alt="Old Heliotrope Shirt">
+          </div>
+        </div>
+      </section>
     </main>
-    <footer>
-        <p>&copy; 2026 Shirt Collection. All rights reserved.</p>
+
+    <footer class="site-footer">
+      <p>© 2026 Shirt Collection. All rights reserved.</p>
     </footer>
+  </div>
+
+  <div class="overlay"></div>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const nav = document.querySelector('.site-nav');
+    const overlay = document.querySelector('.overlay');
+
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      overlay.classList.toggle('show');
+    });
+
+    overlay.addEventListener('click', () => {
+      nav.classList.remove('open');
+      overlay.classList.remove('show');
+    });
+  </script>
 </body>
 </html>
