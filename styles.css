@@ -10,11 +10,10 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
+  margin: 0;
   font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: var(--black);
   color: var(--white);
@@ -26,37 +25,46 @@ body {
   flex-direction: column;
 }
 
+/* HEADER */
 .site-header {
   background: linear-gradient(180deg, var(--dark-plum), var(--charcoal));
   color: var(--white);
   padding: 16px 20px;
+  position: relative;
   z-index: 2;
 }
 
 .header-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-.menu-btn, .cart {
-  font-size: 20px;
+.menu-btn {
+  background: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+  font-size: 22px;
+  padding: 8px 12px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 .cart {
-  margin-left: 10px;
+  font-size: 22px;
+  cursor: pointer;
 }
 
+/* SIDE MENU */
 .site-nav {
   position: fixed;
   top: 0;
   left: -260px;
   width: 260px;
   height: 100%;
-  background: #111;
+  background: var(--charcoal);
   padding: 20px;
-  transition: 0.3s;
+  transition: left 0.3s ease;
   z-index: 1000;
 }
 
@@ -65,10 +73,12 @@ body {
 }
 
 .site-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  list-style: none;
 }
 
 .site-nav a {
@@ -76,7 +86,7 @@ body {
   text-decoration: none;
   font-weight: 700;
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 5px;
 }
 
 .site-nav a:hover {
@@ -84,6 +94,7 @@ body {
   color: var(--black);
 }
 
+/* OVERLAY */
 .overlay {
   position: fixed;
   top: 0;
@@ -99,10 +110,11 @@ body {
   display: block;
 }
 
+/* BRAND + SEARCH */
 .brand {
-  font-size: 2rem;
   margin: 12px 0;
-  letter-spacing: 0.1em;
+  font-size: clamp(1.8rem, 2.2vw, 2.8rem);
+  letter-spacing: 0.08em;
 }
 
 .search-wrap input {
@@ -113,29 +125,43 @@ body {
   border: none;
 }
 
-/* MAIN */
+/* MAIN SECTIONS */
 main {
   flex: 1;
   padding: 20px;
 }
 
-.hero, .collection, .social-section, .contact-section {
-  background: #1a1a1a;
+.hero,
+.info-cards article,
+.social-section,
+.contact-section,
+.collection {
+  background: var(--charcoal);
   border-radius: 12px;
   margin: 20px auto;
   max-width: 1080px;
   padding: 24px;
 }
 
-.hero img, .social-section img, .collection img {
+.hero img,
+.social-section img,
+.collection img {
   width: 100%;
   border-radius: 10px;
 }
 
+/* INFO CARDS */
+.info-cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* PRODUCTS */
 .products {
   display: flex;
-  flex-wrap: wrap;
   gap: 20px;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -148,36 +174,24 @@ main {
   border-radius: 10px;
 }
 
-.info-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 16px;
-  max-width: 1080px;
-  margin: 20px auto;
-}
-
-.info-cards article {
-  background: var(--sand);
-  padding: 16px;
-  border-radius: 10px;
-  color: var(--black);
-}
-
+/* BUTTONS */
 .btn {
   display: inline-block;
   margin-top: 12px;
   background: var(--dark-plum);
   color: var(--white);
   padding: 12px 20px;
-  border-radius: 8px;
   text-decoration: none;
+  border-radius: 8px;
   font-weight: 700;
 }
 
 .btn:hover {
-  background: var(--black);
+  background: var(--sand);
+  color: var(--black);
 }
 
+/* FOOTER */
 .site-footer {
   background: var(--charcoal);
   text-align: center;
@@ -187,8 +201,9 @@ main {
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 12px;
   flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .footer-nav a {
@@ -196,6 +211,7 @@ main {
   text-decoration: none;
 }
 
+/* INTRO */
 .intro {
   position: fixed;
   top: 0;
@@ -212,19 +228,15 @@ main {
 }
 
 @keyframes fadeOut {
-  to { opacity: 0; visibility: hidden; }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
-@media(max-width:760px){
+/* RESPONSIVE */
+@media (max-width: 760px) {
   .info-cards {
     grid-template-columns: 1fr;
-  }
-
-  .site-nav {
-    width: 100%;
-  }
-
-  .product img {
-    width: 140px;
   }
 }
