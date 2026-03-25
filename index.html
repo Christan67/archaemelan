@@ -8,7 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="loader"><img src="logo.svg" alt="Loading"></div>
+    <div id="intro-overlay">
+        <h1 class="reveal-text" id="revealText">ARCHÆM ÉLAN</h1>
+    </div>
 
     <nav class="side-nav" id="sideNav">
         <a href="index.html">HOME</a>
@@ -25,9 +27,9 @@
     </header>
 
     <main>
-        <section class="brand-intro">
-            <h1>Tailoring the New Vanguard</h1>
-            <p>Sculpted attire for the modern silhouette</p>
+        <section class="brand-hero">
+            <h1>ARCHÆM ÉLAN</h1>
+            <p class="sub-title">Tailoring the New Vanguard</p>
             <a href="collections.html" class="btn">ENTER THE ARCHIVE</a>
         </section>
 
@@ -42,9 +44,19 @@
 
     <script>
         function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }
+
+        // Spelling out the logo
+        const textWrapper = document.getElementById('revealText');
+        const content = textWrapper.textContent;
+        textWrapper.innerHTML = content.split('').map((char, i) => 
+            `<span style="animation-delay: ${i * 0.1}s">${char}</span>`
+        ).join('');
+
         window.addEventListener('load', () => {
-            const l = document.getElementById('loader');
-            setTimeout(() => { l.style.opacity = '0'; setTimeout(() => l.remove(), 800); }, 1000);
+            setTimeout(() => {
+                document.getElementById('intro-overlay').style.opacity = '0';
+                setTimeout(() => document.getElementById('intro-overlay').remove(), 1000);
+            }, 2500); 
         });
     </script>
 </body>
