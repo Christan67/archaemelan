@@ -1,10 +1,10 @@
 :root {
-  --dark-plum: #3d173f;
-  --sand: #d7c09b;
-  --sage: #8ea59a;
-  --charcoal: #424242;
-  --black: #121212;
-  --cream: #f5f0e7;
+  /* Official Palette from SA_B3_PT2.pdf */
+  --eggplant: #3B0B2E;      /* Primary Header/Nav [cite: 21, 32] */
+  --sandstone: #D6C6A8;     /* Main Background [cite: 25, 31] */
+  --sage-green: #8A9A8A;    /* Icons/Accents [cite: 26, 36] */
+  --charcoal-grey: #2F2F2F; /* Outlines/Dividers [cite: 28, 35] */
+  --dark-charcoal: #1E1E1E; /* Primary Body Text [cite: 29, 34] */
   --white: #ffffff;
 }
 
@@ -13,8 +13,8 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: var(--cream);
-  color: var(--black);
+  background-color: var(--sandstone); /* Warm, clean interface [cite: 31] */
+  color: var(--dark-charcoal);        /* Ensures readability [cite: 34, 52] */
   overflow-x: hidden;
 }
 
@@ -22,17 +22,17 @@ body {
 #intro-overlay {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: var(--black);
+  background: var(--eggplant); /* Representing creativity & sophistication [cite: 40] */
   display: flex; justify-content: center; align-items: center;
   z-index: 9999;
   animation: fadeOut 1s forwards 2.5s;
 }
 
 .intro-text {
-  color: var(--sand);
+  color: var(--sandstone);
   font-size: 2rem;
   letter-spacing: 0.5rem;
-  border-right: 2px solid var(--sand);
+  border-right: 2px solid var(--sandstone);
   white-space: nowrap;
   overflow: hidden;
   width: 0;
@@ -40,28 +40,29 @@ body {
 }
 
 @keyframes typing { from { width: 0 } to { width: 100% } }
-@keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--sand) } }
+@keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--sandstone) } }
 @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
 
 /* --- HEADER & NAVIGATION --- */
 .site-header {
-  background: linear-gradient(180deg, var(--dark-plum), var(--charcoal));
+  background: var(--eggplant); /* Bold identity for headers [cite: 32] */
   color: var(--white);
   padding: 20px;
   text-align: center;
+  border-bottom: 3px solid var(--sage-green); /* Accent color [cite: 36] */
 }
 
 .header-top {
   display: flex;
-  justify-content: flex-start;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .menu-btn {
   background: transparent;
-  border: 1px solid var(--white);
-  color: var(--white);
-  padding: 10px 15px;
+  border: 1px solid var(--sandstone);
+  color: var(--sandstone);
+  padding: 8px 12px;
   cursor: pointer;
   border-radius: 4px;
 }
@@ -70,15 +71,15 @@ body {
 .site-nav {
   position: fixed;
   top: 0;
-  left: -300px; /* Start hidden on the left */
+  left: -300px;
   width: 300px;
   height: 100%;
-  background: var(--black);
+  background: var(--eggplant);
   z-index: 1000;
   padding: 60px 30px;
-  transition: 0.3s ease;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: left;
-  box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+  box-shadow: 5px 0 15px rgba(0,0,0,0.3);
 }
 
 .site-nav.active { left: 0; }
@@ -91,64 +92,70 @@ body {
 }
 
 .menu-section-title {
-  color: var(--sage);
-  font-size: 0.7rem;
+  color: var(--sage-green); /* Calm natural feel [cite: 46] */
+  font-size: 0.75rem;
   letter-spacing: 2px;
   margin-top: 30px;
   text-transform: uppercase;
 }
 
 .site-nav ul { list-style: none; padding: 0; margin: 0; }
-.site-nav ul li { margin: 15px 0; }
+.site-nav ul li { margin: 15px 0; border-bottom: 1px solid var(--charcoal-grey); }
 .site-nav a {
   color: var(--white);
   text-decoration: none;
   font-size: 1.1rem;
-  transition: 0.2s;
+  display: block;
+  padding-bottom: 5px;
 }
-.site-nav a:hover { color: var(--sand); }
+.site-nav a:hover { color: var(--sandstone); }
 
 /* --- PAGE CONTENT --- */
-.brand { font-size: 2.5rem; letter-spacing: 5px; margin: 20px 0; }
-.search-wrap input { width: 100%; max-width: 400px; padding: 10px; border-radius: 20px; border: none; }
+.brand { font-size: 2.2rem; letter-spacing: 4px; margin: 15px 0; color: var(--white); }
+
+.search-wrap input { 
+  width: 100%; 
+  max-width: 400px; 
+  padding: 10px; 
+  border-radius: 4px; 
+  border: 1px solid var(--charcoal-grey);
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+}
 
 main { padding: 40px 20px; }
+
 .hero, .social-section, .contact-section, .collection {
   background: var(--white);
   padding: 30px;
-  border-radius: 15px;
-  max-width: 1000px;
+  border-radius: 8px;
+  max-width: 1080px;
   margin: 0 auto 40px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border: 1px solid var(--charcoal-grey); /* Using charcoal for outlines [cite: 35] */
 }
 
-.info-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
+.info-cards article { 
+  background: var(--sage-green); /* Using sage for decorative sections [cite: 36] */
+  padding: 20px; 
+  border-radius: 6px; 
+  color: var(--white); 
 }
-
-.info-cards article { background: var(--sand); padding: 20px; border-radius: 10px; }
-
-.products { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-.product { text-align: center; }
-.product img { width: 200px; height: auto; border-radius: 10px; margin-top: 10px; }
 
 .btn {
   display: inline-block;
-  background: var(--dark-plum);
+  background: var(--eggplant);
   color: var(--white);
   padding: 12px 25px;
   text-decoration: none;
-  border-radius: 5px;
-  margin-top: 20px;
+  border-radius: 4px;
+  font-weight: bold;
 }
 
+.btn:hover { background: var(--dark-charcoal); }
+
 .site-footer {
-  background: var(--charcoal);
-  color: var(--white);
-  padding: 30px;
+  background: var(--charcoal-grey); /* Secondary footer color [cite: 35] */
+  color: var(--sandstone);
+  padding: 20px;
   text-align: center;
 }
