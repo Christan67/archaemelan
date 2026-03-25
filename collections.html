@@ -7,38 +7,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="side-nav" id="sideNav">
+        <a href="index.html">HOME</a>
+        <a href="collections.html">COLLECTIONS</a>
+        <a href="socials.html">SOCIAL MEDIAS</a>
+    </nav>
+
     <header class="site-header">
         <div class="header-top">
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
             <div class="logo-container"><img src="logo.svg" alt="LOGO"></div>
+            <div style="width: 45px;"></div>
         </div>
     </header>
 
     <main>
-    <h2 style="text-align: center; margin: 40px 0; letter-spacing: 4px; font-size: 0.9rem;">CURRENT ARCHIVE</h2>
+        <h2 style="text-align: center; margin: 40px 0; letter-spacing: 4px; font-size: 0.8rem;">THE ARCHIVE</h2>
+        <section class="products">
+            <div class="product"><img src="grey.jpg" alt="Gray"><h3>Charcoal Gray</h3></div>
+            <div class="product"><img src="cream.jpg" alt="Cream"><h3>Cream</h3></div>
+            <div class="product"><img src="black.jpg" alt="Black"><h3>Black</h3></div>
+            <div class="product"><img src="old-heliotrope.jpg" alt="Heliotrope"><h3>Old Heliotrope</h3></div>
+        </section>
+    </main>
     
-    <section class="products">
-        <div class="product">
-            <img src="grey.jpg" alt="Gray">
-            <h3>Charcoal Gray</h3>
-        </div>
-        <div class="product">
-            <img src="cream.jpg" alt="Cream">
-            <h3>Cream</h3>
-        </div>
-        <div class="product">
-            <img src="black.jpg" alt="Black">
-            <h3>Black</h3>
-        </div>
-        <div class="product">
-            <img src="old-heliotrope.jpg" alt="Heliotrope">
-            <h3>Old Heliotrope</h3>
-        </div>
-    </section>
-</main>
-    
-    <footer class="site-footer">
-        <p>© 2026 ARCHÆM ÉLAN™</p>
-    </footer>
+    <footer class="site-footer"><p>© 2026 ARCHÆM ÉLAN™</p></footer>
+
+    <script>function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }</script>
 </body>
 </html>
