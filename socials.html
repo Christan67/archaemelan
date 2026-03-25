@@ -7,11 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="intro-overlay">
-        <div class="intro-content">
-            <h1>ARCHÆM ÉLAN</h1>
-        </div>
-    </div>
+    <div id="intro-overlay"><div class="intro-content"><h1>ARCHÆM ÉLAN</h1></div></div>
 
     <nav class="side-nav" id="sideNav">
         <ul>
@@ -22,43 +18,39 @@
     </nav>
 
     <header class="site-header">
-        <h1 class="brand">ARCHÆM ÉLAN™</h1>
-        <button class="menu-btn" onclick="toggleMenu()" aria-label="Open Menu">☰</button>
+        <div class="header-top">
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            <h1 class="brand">ARCHÆM ÉLAN™</h1>
+            <div style="width: 50px;"></div>
+        </div>
     </header>
 
     <main>
-        <section class="social-section" style="text-align:center;">
-            <h2>CONNECT WITH US</h2>
-            <p>Join our community of young architects and designers[cite: 11].</p>
-            <p>Instagram: <a href="#" style="color:var(--eggplant); font-weight:bold;">@archaem_elan</a></p>
-            <p>TikTok: <a href="#" style="color:var(--eggplant); font-weight:bold;">@archaem.elan</a></p>
+        <section class="hero" style="text-align: center;">
+            <h2>Follow ARCHÆM ÉLAN™</h2>
+            <p>Instagram: <a href="#">@archaem_elan</a></p>
+            <p>TikTok: <a href="#">@archaem.elan</a></p>
         </section>
 
-        <section class="contact-section">
-            <h2>INQUIRIES</h2>
-            <form action="#">
-                <label for="name">Name:</label>
-                <input type="text" id="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" rows="4" required></textarea>
-                <button type="submit" class="btn">SEND MESSAGE</button>
-            </form>
+        <section class="info-cards">
+            <article style="grid-column: span 3;">
+                <h3>Contact Us</h3>
+                <form style="display: flex; flex-direction: column; gap: 10px;">
+                    <input type="text" placeholder="Name" style="padding: 10px; border-radius: 4px; border: 1px solid var(--charcoal);">
+                    <input type="email" placeholder="Email" style="padding: 10px; border-radius: 4px; border: 1px solid var(--charcoal);">
+                    <textarea placeholder="Message" rows="4" style="padding: 10px; border-radius: 4px; border: 1px solid var(--charcoal);"></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </article>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p>© 2026 ARCHÆM ÉLAN™ • Professional Excellence </p>
+        <p>© 2026 ARCHÆM ÉLAN™</p>
     </footer>
 
     <script>
-        function toggleMenu() {
-            const nav = document.getElementById('sideNav');
-            const btn = document.querySelector('.menu-btn');
-            nav.classList.toggle('open');
-            btn.innerHTML = nav.classList.contains('open') ? '✕' : '☰';
-        }
+        function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }
     </script>
 </body>
 </html>
