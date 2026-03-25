@@ -1,9 +1,9 @@
 :root {
-    --eggplant: #3B0B2E;
-    --sandstone: #D6C6A8;
-    --sage: #8A9A8A;
-    --charcoal: #2F2F2F;
-    --dark-charcoal: #1E1E1E;
+    --eggplant: #3B0B2E;        /* [cite: 21] */
+    --sandstone: #D6C6A8;       /* [cite: 23, 25] */
+    --sage: #8A9A8A;            /* [cite: 26] */
+    --charcoal: #2F2F2F;        /* [cite: 28] */
+    --dark-charcoal: #1E1E1E;   /* [cite: 29] */
     --white: #ffffff;
 }
 
@@ -15,7 +15,6 @@ body {
     overflow-x: hidden;
 }
 
-/* --- INTRO & SIDE NAV --- */
 #intro-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -38,9 +37,8 @@ body {
 }
 .side-nav.open { right: 0; }
 .side-nav ul { list-style: none; padding: 0; }
-.side-nav a { color: var(--sandstone); text-decoration: none; display: block; padding: 15px; font-size: 1.2rem; }
+.side-nav a { color: var(--sandstone); text-decoration: none; display: block; padding: 15px; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
 
-/* --- HEADER --- */
 .site-header {
     background: var(--eggplant); /* [cite: 32] */
     color: var(--white);
@@ -49,7 +47,6 @@ body {
 .header-top { display: flex; justify-content: space-between; align-items: center; }
 .menu-btn { background: transparent; border: 1px solid var(--white); color: var(--white); font-size: 24px; padding: 5px 12px; cursor: pointer; }
 
-/* --- GRID & IMAGES (SIDE BY SIDE) --- */
 .products {
     display: flex;
     flex-wrap: wrap;
@@ -61,7 +58,7 @@ body {
 .product img { width: 200px; height: auto; border-radius: 4px; border: 1px solid var(--charcoal); }
 
 .hero { text-align: center; padding: 40px 20px; }
-.hero img { width: 100%; max-width: 800px; border-radius: 8px; }
+.hero img { width: 100%; max-width: 800px; border-radius: 8px; margin-bottom: 20px; }
 
 .info-cards {
     display: grid;
@@ -77,3 +74,11 @@ body {
 }
 
 .btn { background: var(--eggplant); color: var(--white); padding: 12px 24px; text-decoration: none; border-radius: 4px; display: inline-block; font-weight: bold; }
+
+.site-footer {
+    background: var(--charcoal);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
