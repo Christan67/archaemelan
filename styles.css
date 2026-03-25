@@ -234,3 +234,14 @@ main {
   width: 200px;   /* change this if you want smaller/bigger */
   height: auto;
 }
+/* BURGER MENU FUNCTION */
+.site-nav {
+  display: none;
+}
+
+.site-nav.open {
+  display: block;
+  background: var(--dark-plum);
+  padding: 10px;
+  border-radius: 8px;
+}
