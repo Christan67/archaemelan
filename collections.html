@@ -3,38 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collections</title>
+    <title>Collections | ARCHÆM ÉLAN™</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Our Shirt Collections</h1>
+    <div id="intro-overlay">
+        <div class="intro-content">
+            <h1>ARCHÆM ÉLAN</h1>
+        </div>
+    </div>
+
+    <nav class="side-nav" id="sideNav">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="collections.html">COLLECTIONS</a></li>
+            <li><a href="socials.html">SOCIAL MEDIAS</a></li>
+        </ul>
+    </nav>
+
+    <header class="site-header">
+        <h1 class="brand">ARCHÆM ÉLAN™</h1>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Open Menu">☰</button>
     </header>
+
     <main>
         <section class="collection">
-            <h2>Shirt Colors</h2>
+            <h2 style="text-align: center; color: var(--eggplant);">ARCHITECTURAL CONCEPTS</h2>
             <div class="products">
-                <div class="product grey">
-                    <h3>Charcoal Gray Shirt</h3>
-                    <img src="grey.jpg" alt="Charcoal Gray Shirt">
+                <div class="product">
+                    <h3>Charcoal Geometry</h3>
+                    <img src="grey.jpg" alt="Charcoal Design">
                 </div>
-                <div class="product cream">
-                    <h3>Cream Shirt</h3>
-                    <img src="cream.jpg" alt="Cream Shirt">
+                <div class="product">
+                    <h3>Sandstone Minimal</h3>
+                    <img src="cream.jpg" alt="Sandstone Design">
                 </div>
-                <div class="product black">
-                    <h3>Black Shirt</h3>
-                    <img src="black.jpg" alt="Black Shirt">
+                <div class="product">
+                    <h3>Deep Obsidian</h3>
+                    <img src="black.jpg" alt="Black Design">
                 </div>
-                <div class="product old-heliotrope">
-                    <h3>Old Heliotrope Shirt</h3>
-                    <img src="old-heliotrope.jpg" alt="Old Heliotrope Shirt">
+                <div class="product">
+                    <h3>Heliotrope Form</h3>
+                    <img src="old-heliotrope.jpg" alt="Heliotrope Design">
                 </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2026 Shirt Collection. All rights reserved.</p>
+
+    <footer class="site-footer">
+        <p>© 2026 ARCHÆM ÉLAN™ • Design Inspiration [cite: 17]</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('sideNav');
+            const btn = document.querySelector('.menu-btn');
+            nav.classList.toggle('open');
+            btn.innerHTML = nav.classList.contains('open') ? '✕' : '☰';
+        }
+    </script>
 </body>
 </html>
