@@ -1,3 +1,15 @@
+:root {
+    --eggplant: #3B0B2E;
+    --sandstone: #D6C6A8;
+    --slate: #4A5D6E;
+    --sage: #8A9A8A;
+    --charcoal: #2F2F2F;
+    --dark: #1E1E1E;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
     display: flex;
     flex-direction: column;
@@ -66,4 +78,3 @@ main { flex: 1; display: flex; flex-direction: column; align-items: center; just
 
 .btn { background: var(--eggplant); color: white; padding: 15px 40px; text-decoration: none; font-weight: bold; letter-spacing: 2px; }
 .site-footer { background: var(--charcoal); color: white; text-align: center; padding: 20px; font-size: 0.7rem; width: 100%; }
-
