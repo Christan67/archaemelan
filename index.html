@@ -14,88 +14,66 @@
   <div class="page-wrapper">
     <header class="site-header">
       <div class="header-top">
-        <button class="menu-btn" id="open-menu" aria-label="Open navigation">☰ MENU</button>
-        
-        <nav class="site-nav" id="side-menu" aria-label="Main">
-          <button class="close-menu" id="close-menu">&times;</button>
-          
-          <p class="menu-section-title">Primary</p>
-          <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="collections.html">NEW ARRIVALS</a></li>
-            <li><a href="collections.html">SALE / OFFERS</a></li>
-          </ul>
-
-          <p class="menu-section-title">Collections</p>
-          <ul>
-            <li><a href="collections.html">MENSWEAR</a></li>
-            <li><a href="collections.html">WOMENSWEAR</a></li>
-            <li><a href="collections.html">ACCESSORIES</a></li>
-          </ul>
-
-          <p class="menu-section-title">Account & Support</p>
-          <ul>
-            <li><a href="socials.html">CONTACT US</a></li>
-            <li><a href="#">MY ACCOUNT</a></li>
-            <li><a href="socials.html">SOCIAL MEDIAS</a></li>
-          </ul>
-        </nav>
+        <button class="menu-btn" id="open-menu">☰ MENU</button>
+        <div class="cart-icon" style="color: white; font-size: 1.2rem;">🛒</div>
       </div>
       <h1 class="brand">ARCHÆM ÉLAN™</h1>
       <div class="search-wrap">
-        <input type="search" placeholder="Search..." aria-label="Search website">
+        <input type="search" placeholder="Search architecture & design...">
       </div>
+
+      <nav class="site-nav" id="side-menu">
+        <button class="close-menu" id="close-menu">&times;</button>
+        <p class="menu-section-title">Navigation</p>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="collections.html">COLLECTIONS</a></li>
+          <li><a href="socials.html">SOCIALS</a></li>
+        </ul>
+        <p class="menu-section-title">Categories</p>
+        <ul>
+          <li><a href="collections.html">NEW ARRIVALS</a></li>
+          <li><a href="collections.html">MENSWEAR</a></li>
+          <li><a href="collections.html">WOMENSWEAR</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
       <section class="hero">
-        <h2>ARCHÆM ÉLAN COLLECTION</h2>
-        <img src="https://via.placeholder.com/800x400?text=ARCH%C3%86M+%C3%89LAN" alt="Archæm Élan clothing collection">
-        <p>Discover the first drop of ARCHÆM ÉLAN™. A modern architecture-inspired fashion brand combining minimal design with luxury streetwear.</p>
-        <a href="collections.html" class="btn">VIEW COLLECTION</a>
+        <h2>ARCHITECTURAL CREATIVITY</h2>
+        <img src="https://via.placeholder.com/800x400/3B0B2E/D6C6A8?text=ARCHÆM+ÉLAN+COLLECTION" alt="Archæm Élan collection">
+        <p>Discover minimal design combined with luxury streetwear, inspired by modern architecture[cite: 8, 9].</p>
+        <a href="collections.html" class="btn">VIEW DROP 01</a>
       </section>
 
       <section class="info-cards">
         <article>
-          <h3>Timeless Materials</h3>
-          <p>Craftsmanship meets contemporary form with premium textiles and architectural silhouettes.</p>
+          <h3>Modern Design</h3>
+          <p>Organized and minimal but still visually interesting[cite: 15].</p>
         </article>
         <article>
-          <h3>Limited Drops</h3>
-          <p>Each collection is released in small batches to preserve exclusivity and refined aesthetics.</p>
-        </article>
-        <article>
-          <h3>Connect</h3>
-          <p>Follow us on socials and sign up for live updates from the runway.</p>
+          <h3>Innovation</h3>
+          <p>Reflecting the elegance and precision found in architecture[cite: 16].</p>
         </article>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="footer-nav">
-        <a href="index.html">Home</a>
-        <a href="collections.html">Collections</a>
-        <a href="socials.html">Socials</a>
-      </div>
-      <p>© 2026 ARCHÆM ÉLAN™ • Powered by Design & Architecture</p>
+      <p>© 2026 ARCHÆM ÉLAN™ • Modern Design Brand [cite: 18]</p>
     </footer>
   </div>
 
   <script>
-    const openBtn = document.getElementById('open-menu');
-    const closeBtn = document.getElementById('close-menu');
     const sideMenu = document.getElementById('side-menu');
-    const intro = document.getElementById('intro-overlay');
-
-    // Toggle Menu Logic
-    openBtn.onclick = () => sideMenu.classList.add('active');
-    closeBtn.onclick = () => sideMenu.classList.remove('active');
-
-    // Intro Animation Logic (Plays only once per browser session)
-    if(sessionStorage.getItem('intro-done')) {
-      intro.style.display = 'none';
+    document.getElementById('open-menu').onclick = () => sideMenu.classList.add('active');
+    document.getElementById('close-menu').onclick = () => sideMenu.classList.remove('active');
+    
+    // Play intro only once per session
+    if(sessionStorage.getItem('intro-played')) {
+      document.getElementById('intro-overlay').style.display = 'none';
     } else {
-      sessionStorage.setItem('intro-done', 'true');
+      sessionStorage.setItem('intro-played', 'true');
     }
   </script>
 </body>
