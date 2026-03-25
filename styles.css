@@ -6,65 +6,56 @@
     --white: #ffffff;
 }
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-    margin: 0;
     font-family: 'Inter', sans-serif;
     background-color: var(--sandstone);
     overflow-x: hidden;
 }
 
-/* Header & Borderless Menu */
 .site-header { background: var(--eggplant); padding: 15px 20px; }
+
 .header-top { display: flex; justify-content: space-between; align-items: center; position: relative; }
-.menu-btn { background: transparent; border: none; color: var(--white); font-size: 30px; cursor: pointer; }
+
+.menu-btn { background: transparent; border: none; color: var(--white); font-size: 32px; cursor: pointer; }
+
 .logo-container { position: absolute; left: 50%; transform: translateX(-50%); }
+
 .logo-container img { height: 45px; }
 
-/* Eye-Catching Centered Statement */
 .brand-statement {
-    max-width: 800px;
-    margin: 40px auto;
+    max-width: 900px;
+    margin: 80px auto 60px auto;
     text-align: center;
     padding: 0 20px;
 }
 
 .brand-statement p {
-    font-family: 'Playfair Display', serif; /* Eye-catching elegant font */
-    font-size: 1.8rem;
-    line-height: 1.4;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    line-height: 1.3;
     color: var(--eggplant);
     font-style: italic;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-/* Locked Side-by-Side Clothing Grid */
 .products {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.product { 
-    width: 220px; /* Precise sizing */
-    text-align: center; 
-}
+.product { width: 220px; text-align: center; }
 
-.product img { 
-    width: 100%; 
-    height: auto; 
-    border-radius: 4px; 
-    border: 1px solid var(--charcoal); 
-}
+.product img { width: 100%; height: auto; border-radius: 4px; border: 1px solid var(--charcoal); }
 
-.product h3 {
-    font-size: 1rem;
-    margin-top: 10px;
-    color: var(--charcoal);
-}
+.product h3 { font-size: 1rem; margin-top: 12px; color: var(--charcoal); text-transform: uppercase; }
 
-/* Sidebar Lock */
 .side-nav {
     position: fixed;
     top: 0; right: 0;
@@ -72,6 +63,19 @@ body {
     background: var(--eggplant);
     z-index: 1000;
     transform: translateX(100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-in-out;
+    padding-top: 80px;
 }
+
 .side-nav.open { transform: translateX(0); }
+
+.side-nav a {
+    color: var(--sandstone);
+    text-decoration: none;
+    display: block;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.site-footer { background: var(--charcoal); color: white; text-align: center; padding: 40px; margin-top: 60px; }
