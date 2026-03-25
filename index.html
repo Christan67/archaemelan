@@ -3,43 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARCHÆM ÉLAN™</title>
+    <title>ARCHÆM ÉLAN™ | The Archive</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="intro-overlay"><h1 class="reveal-text" id="revealText">ARCHÆM ÉLAN</h1></div>
+
     <nav class="side-nav" id="sideNav">
         <a href="index.html">HOME</a>
         <a href="collections.html">COLLECTIONS</a>
         <a href="socials.html">SOCIAL MEDIAS</a>
     </nav>
+
     <header class="site-header">
         <div class="header-top">
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
-            <div class="logo-container"><img src="logo.svg" alt="LOGO"></div>
-            <div style="width: 45px;"></div>
+            <div class="logo-container"><img src="logo.svg" alt="ARCHÆM ÉLAN"></div>
+            <div class="cart-container">
+                <button class="cart-btn" onclick="location.href='cart.html'">🛒 <span id="cart-count">0</span></button>
+            </div>
         </div>
     </header>
+
     <main>
         <section class="brand-hero">
             <h1>ARCHÆM ÉLAN</h1>
             <p class="sub-title">Sculpted attire for the modern silhouette</p>
-            <a href="collections.html" class="btn">ENTER THE ARCHIVE</a>
+            <a href="#shop" class="btn">VIEW ARCHIVE</a>
         </section>
+
+        <section class="library-hero">
+            <div class="library-text">
+                <h2 style="font-family: 'Playfair Display'; font-size: 2rem; margin-bottom: 10px;">The Studio Concept</h2>
+                <p>An exploration of structural grace and high-density textiles. Every piece is a testament to architectural fashion.</p>
+            </div>
+        </section>
+
+        <section id="shop" class="products">
+            <div class="product" onclick="openModal('Charcoal Grey', 'grey.jpg', 'A deep, versatile shade that balances modern edge with understated sophistication.')">
+                <img src="grey.jpg" alt="Charcoal Grey">
+                <h3>Charcoal Grey</h3>
+            </div>
+            <div class="product" onclick="openModal('Cream', 'cream.jpg', 'Soft and refined, this neutral tone brings effortless warmth to any look.')">
+                <img src="cream.jpg" alt="Cream">
+                <h3>Cream</h3>
+            </div>
+            <div class="product" onclick="openModal('Black', 'black.jpg', 'Timeless and bold, the ultimate staple that pairs seamlessly with everything.')">
+                <img src="black.jpg" alt="Black">
+                <h3>Black</h3>
+            </div>
+            <div class="product" onclick="openModal('Old Heliotrope', 'old-heliotrope.jpg', 'A rich purple hue with vintage character, perfect for standing out subtly.')">
+                <img src="old-heliotrope.jpg" alt="Old Heliotrope">
+                <h3>Old Heliotrope</h3>
+            </div>
+        </section>
+
         <section class="info-cards">
             <div class="card"><h3>VANGUARD TEXTILES</h3><p>Curated fabrics designed to maintain structure and movement.</p></div>
             <div class="card"><h3>ELITE RARITY</h3><p>Every garment is part of a numbered, limited-run sequence.</p></div>
             <div class="card"><h3>INNER CIRCLE</h3><p>Follow the evolution from sketch to seam.</p></div>
         </section>
     </main>
-    <footer class="site-footer"><p>© 2026 ARCHÆM ÉLAN™</p></footer>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-img"><img id="modalImg" src=""></div>
+            <div class="modal-info">
+                <h2 id="modalTitle"></h2>
+                <p id="modalDesc"></p>
+                <label>SIZE</label>
+                <select class="size-selector" id="prodSize">
+                    <option>Small</option><option>Medium</option><option>Large</option><option>XL</option>
+                </select>
+                <label>QUANTITY</label>
+                <input type="number" value="1" min="1" class="qty-selector" id="prodQty">
+                <button class="buy-btn" onclick="addToCart()">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer"><p>© 2026 ARCHÆM ÉLAN™ • Modern Design</p></footer>
+
     <script>
         function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }
+
+        // Modal Logic
+        let selectedProduct = {};
+        function openModal(title, img, desc) {
+            selectedProduct = { title, img };
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalImg').src = img;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('productModal').style.display = 'flex';
+        }
+        function closeModal() { document.getElementById('productModal').style.display = 'none'; }
+
+        // Cart Logic
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        function addToCart() {
+            const size = document.getElementById('prodSize').value;
+            const qty = document.getElementById('prodQty').value;
+            cart.push({ ...selectedProduct, size, qty });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartIcon();
+            closeModal();
+            alert(selectedProduct.title + " added to cart.");
+        }
+        function updateCartIcon() {
+            document.getElementById('cart-count').innerText = cart.length;
+        }
+
+        // Intro Logic
         const textWrapper = document.getElementById('revealText');
         const content = "ARCHÆM ÉLAN";
         textWrapper.innerHTML = content.split('').map((char, i) => `<span style="animation-delay: ${i * 0.12}s">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
         window.addEventListener('load', () => {
+            updateCartIcon();
             setTimeout(() => {
                 document.getElementById('intro-overlay').style.opacity = '0';
                 setTimeout(() => document.getElementById('intro-overlay').remove(), 1000);
