@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOCIALS | ARCHÆM ÉLAN™</title>
+    <title>CONNECT | ARCHÆM ÉLAN</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,22 +12,39 @@
         <a href="collections.html">COLLECTIONS</a>
         <a href="socials.html">SOCIAL MEDIAS</a>
     </nav>
+
     <header class="site-header">
         <div class="header-top">
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
             <div class="logo-container"><img src="logo.svg" alt="LOGO"></div>
-            <div style="width: 45px;"></div>
+            <button class="cart-btn" onclick="location.href='cart.html'">🛒</button>
         </div>
     </header>
+
     <main>
-        <h2 style="letter-spacing: 5px; color: #3B0B2E; margin-bottom: 20px;">CONNECT</h2>
-        <div class="social-links">
-            <a href="https://instagram.com/" target="_blank" class="social-btn">Instagram</a>
-            <a href="https://tiktok.com/" target="_blank" class="social-btn">TikTok</a>
-            <a href="mailto:contact@archaemelan.com" class="email-btn">Inquiries via Email</a>
+        <div class="social-container">
+            <h1 style="font-family: 'Playfair Display'; font-style: italic; font-size: 3rem;">Join the Vanguard</h1>
+            <p style="letter-spacing: 3px; margin-top: 10px;">Follow the evolution across our platforms.</p>
+
+            <div class="social-grid">
+                <a href="https://www.instagram.com/archaem_elan/" target="_blank" class="social-card">
+                    <h2>INSTAGRAM</h2>
+                    <span>@archaem_elan ↗</span>
+                </a>
+                <a href="https://www.tiktok.com/@archaem.elan" target="_blank" class="social-card">
+                    <h2>TIKTOK</h2>
+                    <span>@archaem.elan ↗</span>
+                </a>
+                <a href="mailto:contact@archaemelan.com" class="social-card" style="background: var(--eggplant); color: white;">
+                    <h2>EMAIL</h2>
+                    <span>DIRECT INQUIRY ↗</span>
+                </a>
+            </div>
         </div>
     </main>
+
     <footer class="site-footer"><p>© 2026 ARCHÆM ÉLAN™</p></footer>
+
     <script>function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }</script>
 </body>
 </html>
