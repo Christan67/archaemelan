@@ -271,3 +271,7 @@ main {
     visibility: hidden;
   }
 }
+.cart {
+  font-size: 20px;
+  cursor: pointer;
+}
