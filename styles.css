@@ -19,6 +19,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Intro Overlay */
 #intro-overlay {
     position: fixed;
     inset: 0;
@@ -47,34 +48,61 @@ body {
 
 @keyframes letterFade { to { opacity: 1; } }
 
-.site-header { background: var(--eggplant); padding: 15px 20px; width: 100%; }
-.header-top { display: flex; justify-content: space-between; align-items: center; position: relative; }
-.menu-btn { background: transparent; border: none; color: var(--white); font-size: 32px; cursor: pointer; }
+/* Header & LARGE Logo */
+.site-header { background: var(--eggplant); padding: 20px; width: 100%; position: sticky; top: 0; z-index: 100; }
+.header-top { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; position: relative; }
+.menu-btn, .cart-btn { background: transparent; border: none; color: var(--white); font-size: 28px; cursor: pointer; }
 .logo-container { position: absolute; left: 50%; transform: translateX(-50%); }
-.logo-container img { height: 45px; }
+.logo-container img { height: 75px; width: auto; } /* SIGNIFICANTLY PROMINENT LOGO */
+
+#cart-count { background: var(--sage); color: white; font-size: 12px; padding: 2px 6px; border-radius: 50%; position: absolute; top: 0; right: -5px; }
+
+/* Library Section on Home */
+.library-hero {
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('library.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}
+.library-text { color: white; text-align: center; max-width: 600px; padding: 20px; background: rgba(59, 11, 46, 0.7); backdrop-filter: blur(5px); }
+
+/* Main Content */
+main { flex: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
+
+.brand-hero { text-align: center; padding: 60px 20px; }
+.brand-hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--eggplant); font-style: italic; }
+.brand-hero .sub-title { font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; color: var(--charcoal); margin: 15px 0 30px; }
+
+/* Products Grid & Hover */
+.products { display: flex; flex-direction: row; flex-wrap: wrap; gap: 30px; justify-content: center; padding: 40px; max-width: 1200px; }
+.product { width: 180px; text-align: center; cursor: pointer; transition: transform 0.3s ease; }
+.product:hover { transform: scale(1.05); }
+.product img { width: 100%; height: auto; border: 1px solid rgba(0,0,0,0.1); margin-bottom: 12px; }
+.product h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--eggplant); }
+
+/* Quick View Modal (Product Page) */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 20px; }
+.modal-content { background: var(--sandstone); max-width: 900px; width: 100%; display: flex; flex-wrap: wrap; position: relative; border-radius: 4px; overflow: hidden; }
+.modal-close { position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; color: var(--eggplant); z-index: 10; }
+.modal-img { flex: 1; min-width: 300px; background: white; display: flex; align-items: center; justify-content: center; }
+.modal-img img { width: 100%; height: auto; }
+.modal-info { flex: 1; min-width: 300px; padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+.modal-info h2 { font-family: 'Playfair Display'; font-size: 2rem; color: var(--eggplant); }
+.modal-info p { line-height: 1.6; color: var(--charcoal); }
+
+.size-selector, .qty-selector { padding: 10px; border: 1px solid var(--eggplant); background: transparent; color: var(--eggplant); font-weight: bold; width: 100%; }
+.buy-btn { background: var(--eggplant); color: white; padding: 15px; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+.buy-btn:hover { background: var(--sage); }
+
+/* Info Cards */
+.info-cards { display: flex; gap: 20px; padding: 40px; justify-content: center; flex-wrap: wrap; width: 100%; background: rgba(255,255,255,0.2); }
+.card { background: rgba(255, 255, 255, 0.3); padding: 30px; width: 320px; border-bottom: 3px solid var(--slate); }
 
 .side-nav { position: fixed; top: 0; right: 0; width: 300px; height: 100%; background: var(--eggplant); z-index: 1000; transform: translateX(100%); transition: 0.4s; padding-top: 80px; }
 .side-nav.open { transform: translateX(0); }
 .side-nav a { color: var(--sandstone); text-decoration: none; display: block; padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); letter-spacing: 2px; }
 
-main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
-
-.brand-hero { text-align: center; padding: 60px 20px; }
-.brand-hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--eggplant); font-style: italic; }
-.brand-hero .sub-title { font-size: 1.1rem; letter-spacing: 4px; text-transform: uppercase; color: var(--charcoal); margin: 15px 0 30px; }
-
-.info-cards { display: flex; gap: 20px; padding: 40px; justify-content: center; flex-wrap: wrap; }
-.card { background: rgba(255, 255, 255, 0.3); padding: 30px; width: 300px; border-bottom: 3px solid var(--slate); }
-
-.products { display: flex; flex-direction: row; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 40px; max-width: 1200px; margin: 0 auto; }
-.product { width: 160px; text-align: center; }
-.product img { width: 100%; height: auto; margin-bottom: 10px; }
-.product h3 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
-
-.social-links { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; align-items: center; }
-.social-btn, .email-btn { border: 1px solid var(--eggplant); color: var(--eggplant); padding: 12px 40px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; width: 250px; text-align: center; transition: 0.3s; }
-.email-btn { background: var(--eggplant); color: var(--white); }
-.social-btn:hover { background: var(--eggplant); color: var(--white); }
-
-.btn { background: var(--eggplant); color: white; padding: 15px 40px; text-decoration: none; font-weight: bold; letter-spacing: 2px; }
-.site-footer { background: var(--charcoal); color: white; text-align: center; padding: 20px; font-size: 0.7rem; width: 100%; }
+.site-footer { background: var(--charcoal); color: white; text-align: center; padding: 30px; font-size: 0.75rem; width: 100%; }
