@@ -1,70 +1,63 @@
-:root {
-    --eggplant: #3B0B2E;
-    --sandstone: #D6C6A8;
-    --slate: #4A5D6E;
-    --charcoal: #2F2F2F;
-    --white: #ffffff;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHÆM ÉLAN™</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-* { box-sizing: border-box; }
+    <nav class="side-nav" id="sideNav">
+        <a href="index.html">HOME</a>
+        <a href="collections.html">COLLECTIONS</a>
+        <a href="socials.html">SOCIAL MEDIAS</a>
+    </nav>
 
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: var(--sandstone);
-    overflow-x: hidden;
-}
+    <header class="site-header">
+        <div class="header-top">
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            <div class="logo-container">
+                <img src="logo.svg" alt="ARCHÆM ÉLAN">
+            </div>
+            <div style="width: 45px;"></div>
+        </div>
+    </header>
 
-/* Header & Borderless Menu */
-.site-header { 
-    background: var(--eggplant); 
-    padding: 15px 20px; 
-}
+    <main>
+        <section class="brand-statement">
+            <p>Modern fashion inspired by structural elegance. <br> Minimal design meets luxury streetwear.</p>
+        </section>
 
-.header-top { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    position: relative; 
-}
+        <section class="products">
+            <div class="product">
+                <img src="grey.jpg" alt="Gray">
+                <h3>Charcoal Gray</h3>
+            </div>
+            <div class="product">
+                <img src="cream.jpg" alt="Cream">
+                <h3>Cream</h3>
+            </div>
+            <div class="product">
+                <img src="black.jpg" alt="Black">
+                <h3>Black</h3>
+            </div>
+            <div class="product">
+                <img src="old-heliotrope.jpg" alt="Heliotrope">
+                <h3>Old Heliotrope</h3>
+            </div>
+        </section>
+    </main>
 
-.menu-btn { 
-    background: transparent; 
-    border: none; 
-    color: var(--white); 
-    font-size: 32px; 
-    cursor: pointer; 
-    padding: 0;
-}
+    <footer class="site-footer">
+        <p>© 2026 ARCHÆM ÉLAN™</p>
+    </footer>
 
-.logo-container { 
-    position: absolute; 
-    left: 50%; 
-    transform: translateX(-50%); 
-}
-
-.logo-container img { height: 45px; }
-
-/* Centered Eye-Catching Statement */
-.brand-statement {
-    max-width: 900px;
-    margin: 80px auto 60px auto;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.brand-statement p {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    line-height: 1.3;
-    color: var(--eggplant);
-    font-style: italic;
-    font-weight: 700;
-}
-
-/* Side-by-Side Clothing Grid (220px Fixed) */
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
+    <script>
+        function toggleMenu() {
+            document.getElementById('sideNav').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
