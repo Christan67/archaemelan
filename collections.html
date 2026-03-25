@@ -3,41 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shirt Collections</title>
-    <!-- Linking the external stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Collections</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Our Shirt Collections</h1>
-    </header>
-
-    <main>
-        <section class="collection">
-            <h2>Shirt Colors</h2>
-            <div class="products">
-                <div class="product grey">
-                    <h3>Charcoal Gray Shirt</h3>
-                    <img src="grey.jpg" alt="Charcoal Gray Shirt">
-                </div>
-                <div class="product cream">
-                    <h3>Cream Shirt</h3>
-                    <img src="cream.jpg" alt="Cream Shirt">
-                </div>
-                <div class="product black">
-                    <h3>Black Shirt</h3>
-                    <img src="black.jpg" alt="Black Shirt">
-                </div>
-                <div class="product old-heliotrope">
-                    <h3>Old Heliotrope Shirt</h3>
-                    <img src="old-heliotrope.jpg" alt="Old Heliotrope Shirt">
-                </div>
+    <div class="page-wrapper">
+        <header class="site-header">
+            <div class="header-top">
+                <button class="menu-btn" aria-label="Open navigation">☰</button>
+                <nav class="site-nav" aria-label="Main">
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="collections.html" class="active">COLLECTIONS</a></li>
+                        <li><a href="social.html">SOCIAL MEDIAS</a></li>
+                    </ul>
+                </nav>
             </div>
-        </section>
-    </main>
+            <h1 class="brand">Our Shirt Collections</h1>
+        </header>
 
-    <footer>
-        <p>&copy; 2026 Shirt Collection. All rights reserved.</p>
-    </footer>
+        <main>
+            <section class="hero">
+                <h2>Shirt Colors</h2>
+                <div class="item-grid">
+                    <figure class="product grey">
+                        <img src="grey.jpg" alt="Charcoal Gray Shirt">
+                        <figcaption>Charcoal Gray Shirt</figcaption>
+                    </figure>
+
+                    <figure class="product cream">
+                        <img src="cream.jpg" alt="Cream Shirt">
+                        <figcaption>Cream Shirt</figcaption>
+                    </figure>
+
+                    <figure class="product black">
+                        <img src="black.jpg" alt="Black Shirt">
+                        <figcaption>Black Shirt</figcaption>
+                    </figure>
+
+                    <figure class="product old-heliotrope">
+                        <img src="old-heliotrope.jpg" alt="Old Heliotrope Shirt">
+                        <figcaption>Old Heliotrope Shirt</figcaption>
+                    </figure>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="collections.html">Collections</a>
+                <a href="social.html">Socials</a>
+            </div>
+            <p>&copy; 2026 Shirt Collection. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>
