@@ -57,7 +57,6 @@ body {
 
 #cart-count { background: var(--sage); color: white; font-size: 12px; padding: 2px 6px; border-radius: 50%; position: absolute; top: 0; right: -5px; }
 
-/* Library Section on Home */
 .library-hero {
     width: 100%;
     height: 500px;
@@ -69,21 +68,18 @@ body {
 }
 .library-text { color: white; text-align: center; max-width: 600px; padding: 20px; background: rgba(59, 11, 46, 0.7); backdrop-filter: blur(5px); }
 
-/* Main Content */
 main { flex: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
 
 .brand-hero { text-align: center; padding: 60px 20px; }
 .brand-hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--eggplant); font-style: italic; }
 .brand-hero .sub-title { font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; color: var(--charcoal); margin: 15px 0 30px; }
 
-/* Products Grid & Hover */
 .products { display: flex; flex-direction: row; flex-wrap: wrap; gap: 30px; justify-content: center; padding: 40px; max-width: 1200px; }
 .product { width: 180px; text-align: center; cursor: pointer; transition: transform 0.3s ease; }
 .product:hover { transform: scale(1.05); }
 .product img { width: 100%; height: auto; border: 1px solid rgba(0,0,0,0.1); margin-bottom: 12px; }
 .product h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--eggplant); }
 
-/* Quick View Modal (Product Page) */
 .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 20px; }
 .modal-content { background: var(--sandstone); max-width: 900px; width: 100%; display: flex; flex-wrap: wrap; position: relative; border-radius: 4px; overflow: hidden; }
 .modal-close { position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; color: var(--eggplant); z-index: 10; }
@@ -97,7 +93,6 @@ main { flex: 1; display: flex; flex-direction: column; align-items: center; widt
 .buy-btn { background: var(--eggplant); color: white; padding: 15px; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
 .buy-btn:hover { background: var(--sage); }
 
-/* Info Cards */
 .info-cards { display: flex; gap: 20px; padding: 40px; justify-content: center; flex-wrap: wrap; width: 100%; background: rgba(255,255,255,0.2); }
 .card { background: rgba(255, 255, 255, 0.3); padding: 30px; width: 320px; border-bottom: 3px solid var(--slate); }
 
