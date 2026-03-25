@@ -7,26 +7,37 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="intro">
-    <h1>ARCHÆM ÉLAN™</h1>
+  <div id="intro-overlay">
+    <div class="intro-text">ARCHÆM ÉLAN</div>
   </div>
-
-  <div class="overlay"></div>
 
   <div class="page-wrapper">
     <header class="site-header">
       <div class="header-top">
-        <button class="menu-btn" aria-label="Open navigation">☰</button>
-        <span class="cart">🛒</span>
-        <nav class="site-nav" aria-label="Main">
+        <button class="menu-btn" id="open-menu" aria-label="Open navigation">☰ MENU</button>
+        
+        <nav class="site-nav" id="side-menu" aria-label="Main">
+          <button class="close-menu" id="close-menu">&times;</button>
+          
+          <p class="menu-section-title">Primary</p>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="collections.html">New Arrivals</a></li>
-            <li><a href="collections.html">Best Sellers</a></li>
-            <li><a href="collections.html">T-Shirts</a></li>
-            <li><a href="collections.html">Hoodies</a></li>
-            <li><a href="collections.html">Accessories</a></li>
-            <li><a href="socials.html">Contact</a></li>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="collections.html">NEW ARRIVALS</a></li>
+            <li><a href="collections.html">SALE / OFFERS</a></li>
+          </ul>
+
+          <p class="menu-section-title">Collections</p>
+          <ul>
+            <li><a href="collections.html">MENSWEAR</a></li>
+            <li><a href="collections.html">WOMENSWEAR</a></li>
+            <li><a href="collections.html">ACCESSORIES</a></li>
+          </ul>
+
+          <p class="menu-section-title">Account & Support</p>
+          <ul>
+            <li><a href="socials.html">CONTACT US</a></li>
+            <li><a href="#">MY ACCOUNT</a></li>
+            <li><a href="socials.html">SOCIAL MEDIAS</a></li>
           </ul>
         </nav>
       </div>
@@ -71,19 +82,21 @@
   </div>
 
   <script>
-    const menuBtn = document.querySelector('.menu-btn');
-    const nav = document.querySelector('.site-nav');
-    const overlay = document.querySelector('.overlay');
+    const openBtn = document.getElementById('open-menu');
+    const closeBtn = document.getElementById('close-menu');
+    const sideMenu = document.getElementById('side-menu');
+    const intro = document.getElementById('intro-overlay');
 
-    menuBtn.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      overlay.classList.toggle('show');
-    });
+    // Toggle Menu Logic
+    openBtn.onclick = () => sideMenu.classList.add('active');
+    closeBtn.onclick = () => sideMenu.classList.remove('active');
 
-    overlay.addEventListener('click', () => {
-      nav.classList.remove('open');
-      overlay.classList.remove('show');
-    });
+    // Intro Animation Logic (Plays only once per browser session)
+    if(sessionStorage.getItem('intro-done')) {
+      intro.style.display = 'none';
+    } else {
+      sessionStorage.setItem('intro-done', 'true');
+    }
   </script>
 </body>
 </html>
