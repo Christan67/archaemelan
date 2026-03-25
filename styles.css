@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Inter', sans-serif;
-    /* RE-INTEGRATED LIBRARY BACKGROUND */
+    /* BACKROUND RESTORED & HARMONIZED */
     background: linear-gradient(rgba(214, 198, 168, 0.85), rgba(214, 198, 168, 0.85)), 
                 url('library.jpg') center/cover no-repeat fixed;
     min-height: 100vh;
@@ -38,114 +38,81 @@ main {
     width: 100%; 
 }
 
-.brand-hero { text-align: center; padding: 80px 20px; }
+.brand-hero { text-align: center; padding: 60px 20px; }
 .brand-hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--eggplant); font-style: italic; }
 .brand-hero .sub-title { font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; color: var(--charcoal); margin: 15px 0 30px; }
 
-/* --- BRAND PILLARS SIDE-BY-SIDE --- */
+/* Home Categories Scale Fix */
+.category-preview { display: flex; gap: 40px; padding: 40px; justify-content: center; flex-wrap: nowrap; width: 100%; max-width: 1200px; }
+.cat-item { width: 350px; text-align: center; cursor: pointer; }
+.cat-item img { 
+    width: 100%; 
+    height: 450px; /* Strict height to prevent zoom-out need */
+    object-fit: cover; 
+    border: 1px solid var(--eggplant); 
+    margin-bottom: 15px; 
+}
+.cat-item h3 { letter-spacing: 5px; text-transform: uppercase; color: var(--eggplant); font-size: 1rem; }
+
+/* Brand Pillars (Home Page Only) */
 .info-cards { 
     display: flex; 
     gap: 30px; 
     padding: 60px 20px; 
     justify-content: center; 
     width: 100%; 
-    background: rgba(255,255,255,0.2); 
-    backdrop-filter: blur(5px);
     flex-wrap: nowrap; 
-    max-width: 1400px; /* Wider to fill space */
+    max-width: 1200px;
     margin: 40px auto;
 }
 .card { 
-    background: rgba(255, 255, 255, 0.4); 
-    padding: 40px; 
+    background: rgba(255, 255, 255, 0.3); 
+    padding: 30px; 
     width: 33.33%; 
-    border-radius: 4px;
     border-bottom: 3px solid var(--eggplant); 
-    transition: transform 0.3s ease;
     text-align: center;
 }
-.card:hover { transform: translateY(-5px); }
-.card h3 { color: var(--eggplant); font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
-.card p { color: var(--charcoal); font-size: 0.9rem; line-height: 1.6; }
 
-/* --- PRODUCT GRID CENTERED & SPREAD --- */
-.products-wrapper { 
-    padding: 40px 20px;
-    max-width: 1400px; /* Increased from 1200px to fill the screen */
-    width: 100%;
+/* --- COLLECTION PAGE GRID: FIXED SIZE --- */
+.collections-container {
+    max-width: 1200px;
+    width: 95%;
+    margin: 40px auto;
 }
-.section-title { 
-    text-align: center; 
-    color: var(--eggplant); 
-    font-size: 0.9rem; 
-    letter-spacing: 4px; 
-    text-transform: uppercase;
-    margin-bottom: 40px;
-}
-.products { 
+.products-grid { 
     display: flex; 
     flex-direction: row; 
-    flex-wrap: nowrap; 
-    gap: 40px; /* Increased gap to spread items out */
-    justify-content: center; /* Centers the row of items */
-    margin-bottom: 80px;
+    flex-wrap: nowrap; /* FORCES SIDE-BY-SIDE */
+    gap: 20px; 
+    justify-content: center; 
+    margin-bottom: 60px;
     width: 100%;
 }
-.product { 
-    width: 250px; /* Made products slightly bigger to fill horizontal space */
+.product-card { 
+    width: 240px; /* Small precisely scaled products */
     text-align: center; 
     cursor: pointer; 
     transition: transform 0.3s ease;
 }
-.product:hover { transform: translateY(-8px); }
-.product img { width: 100%; height: auto; border: 1px solid var(--eggplant); margin-bottom: 15px; background: white; }
-.product h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--eggplant); }
-
-/* --- SOCIALS PAGE REFINED --- */
-.social-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 600px;
-    width: 100%;
-    margin: 50px auto;
+.product-card:hover { transform: translateY(-8px); }
+.product-card img { 
+    width: 100%; 
+    height: 320px; /* Strict height to see whole shirt at once */
+    object-fit: cover; 
+    border: 1px solid rgba(59, 11, 46, 0.2); 
+    margin-bottom: 12px; 
+    background: white;
 }
-.social-card { 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    padding: 30px; 
-    background: rgba(255, 255, 255, 0.8); 
-    border: 1px solid var(--eggplant); 
-    text-decoration: none; 
-    color: var(--eggplant); 
-    transition: 0.3s; 
-}
-.social-card:hover { background: var(--eggplant); color: var(--white); transform: translateX(10px); }
+.product-card h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--eggplant); }
 
-/* Buttons & Navigation */
-.buy-btn { background: var(--eggplant); color: white; padding: 15px; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; width: 100%; }
-.site-footer { background: var(--charcoal); color: white; text-align: center; padding: 30px; font-size: 0.75rem; width: 100%; margin-top: auto; }
-
+/* Navigation & Footer */
 .side-nav { position: fixed; top: 0; right: 0; width: 300px; height: 100%; background: var(--eggplant); z-index: 1000; transform: translateX(100%); transition: 0.4s; padding-top: 80px; }
 .side-nav.open { transform: translateX(0); }
 .side-nav a { color: var(--sandstone); text-decoration: none; display: block; padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); letter-spacing: 2px; }
-
-/* Modal */
-.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 20px; }
-.modal-content { background: var(--sandstone); max-width: 900px; width: 100%; display: flex; flex-wrap: wrap; position: relative; border-radius: 4px; overflow: hidden; }
-.modal-close { position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; color: var(--eggplant); z-index: 10; }
+.site-footer { background: var(--charcoal); color: white; text-align: center; padding: 30px; font-size: 0.75rem; width: 100%; margin-top: auto; }
 
 /* Intro Overlay */
 #intro-overlay { position: fixed; inset: 0; background: var(--eggplant); z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 1s ease; }
 .reveal-text { color: var(--white); font-family: 'Playfair Display', serif; font-size: 2.5rem; letter-spacing: 12px; text-transform: uppercase; white-space: pre; }
 .reveal-text span { opacity: 0; display: inline-block; animation: letterFade 0.4s forwards; }
 @keyframes letterFade { to { opacity: 1; } }
-
-/* Mobile Adjustments */
-@media (max-width: 1000px) {
-    .info-cards { flex-wrap: wrap; }
-    .card { width: 100%; }
-    .products { flex-wrap: wrap; justify-content: space-around; }
-    .product { width: 40%; }
-}
