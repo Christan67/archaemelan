@@ -1,45 +1,69 @@
-:root {
-    --eggplant: #3B0B2E;
-    --sandstone: #D6C6A8;
-    --sage: #8A9A8A;
-    --charcoal: #2F2F2F;
-    --dark: #1E1E1E;
-    --white: #ffffff;
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--sandstone);
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background-color: var(--sandstone); font-family: 'Inter', sans-serif; color: var(--dark); display: flex; flex-direction: column; min-height: 100vh; }
+#intro-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--eggplant);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease;
+}
 
-/* Header & Large Logo */
-.site-header { background: var(--eggplant); padding: 25px 40px; width: 100%; position: sticky; top: 0; z-index: 100; }
-.header-top { display: flex; justify-content: space-between; align-items: center; }
-.logo-container img { height: 70px; transition: 0.3s; } /* Bigger Logo */
-.menu-btn, .cart-btn { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+.reveal-text {
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    white-space: pre;
+}
 
-/* Hero & Library Section */
-.hero-library { width: 100%; height: 60vh; background: url('library.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; margin-bottom: 40px; border-bottom: 5px solid var(--eggplant); }
-.hero-text-box { background: rgba(59, 11, 46, 0.8); padding: 40px; color: white; text-align: center; backdrop-filter: blur(5px); }
+.reveal-text span {
+    opacity: 0;
+    display: inline-block;
+    animation: letterFade 0.4s forwards;
+}
 
-/* Grid */
-.products { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; padding: 40px; }
-.product { width: 180px; cursor: pointer; transition: 0.3s; text-align: center; }
-.product:hover { transform: translateY(-10px); }
-.product img { width: 100%; border: 1px solid var(--charcoal); }
+@keyframes letterFade { to { opacity: 1; } }
 
-/* Product Modal (The "Ecommerce" Page) */
-.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 20px; }
-.modal-content { background: var(--sandstone); display: flex; max-width: 900px; width: 100%; border-radius: 4px; overflow: hidden; position: relative; }
-.modal-close { position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; color: var(--eggplant); }
-.modal-left { flex: 1; background: #fff; display: flex; align-items: center; justify-content: center; }
-.modal-left img { max-width: 100%; height: auto; }
-.modal-right { flex: 1; padding: 40px; display: flex; flex-direction: column; gap: 15px; }
-.modal-right h2 { font-family: 'Playfair Display'; color: var(--eggplant); font-size: 2rem; }
-.price { font-size: 1.5rem; font-weight: bold; color: var(--sage); }
-select, input { padding: 10px; border: 1px solid var(--eggplant); background: transparent; margin-bottom: 10px; }
+.site-header { background: var(--eggplant); padding: 15px 20px; width: 100%; }
+.header-top { display: flex; justify-content: space-between; align-items: center; position: relative; }
+.menu-btn { background: transparent; border: none; color: var(--white); font-size: 32px; cursor: pointer; }
+.logo-container { position: absolute; left: 50%; transform: translateX(-50%); }
+.logo-container img { height: 45px; }
 
-/* Buttons */
-.add-to-cart { background: var(--eggplant); color: white; padding: 15px; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; }
-.add-to-cart:hover { background: var(--sage); }
+.side-nav { position: fixed; top: 0; right: 0; width: 300px; height: 100%; background: var(--eggplant); z-index: 1000; transform: translateX(100%); transition: 0.4s; padding-top: 80px; }
+.side-nav.open { transform: translateX(0); }
+.side-nav a { color: var(--sandstone); text-decoration: none; display: block; padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); letter-spacing: 2px; }
 
-/* Cart Counter */
-#cart-count { background: var(--sage); color: white; font-size: 12px; padding: 2px 6px; border-radius: 50%; vertical-align: top; margin-left: -10px; }
+main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
+
+.brand-hero { text-align: center; padding: 60px 20px; }
+.brand-hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--eggplant); font-style: italic; }
+.brand-hero .sub-title { font-size: 1.1rem; letter-spacing: 4px; text-transform: uppercase; color: var(--charcoal); margin: 15px 0 30px; }
+
+.info-cards { display: flex; gap: 20px; padding: 40px; justify-content: center; flex-wrap: wrap; }
+.card { background: rgba(255, 255, 255, 0.3); padding: 30px; width: 300px; border-bottom: 3px solid var(--slate); }
+
+.products { display: flex; flex-direction: row; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 40px; max-width: 1200px; margin: 0 auto; }
+.product { width: 160px; text-align: center; }
+.product img { width: 100%; height: auto; margin-bottom: 10px; }
+.product h3 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+
+.social-links { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; align-items: center; }
+.social-btn, .email-btn { border: 1px solid var(--eggplant); color: var(--eggplant); padding: 12px 40px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; width: 250px; text-align: center; transition: 0.3s; }
+.email-btn { background: var(--eggplant); color: var(--white); }
+.social-btn:hover { background: var(--eggplant); color: var(--white); }
+
+.btn { background: var(--eggplant); color: white; padding: 15px 40px; text-decoration: none; font-weight: bold; letter-spacing: 2px; }
+.site-footer { background: var(--charcoal); color: white; text-align: center; padding: 20px; font-size: 0.7rem; width: 100%; }
+
