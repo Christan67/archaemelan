@@ -4,29 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARCHÆM ÉLAN™ | Home</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="intro">
-  <h1>ARCHÆM ÉLAN™</h1>
-</div>
+    <h1>ARCHÆM ÉLAN™</h1>
+  </div>
+
   <div class="page-wrapper">
     <header class="site-header">
       <div class="header-top">
         <button class="menu-btn" aria-label="Open navigation">☰</button>
         <span class="cart">🛒</span>
         <nav class="site-nav" aria-label="Main">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="collections.html">New Arrivals</a></li>
-    <li><a href="collections.html">Best Sellers</a></li>
-    <li><a href="collections.html">T-Shirts</a></li>
-    <li><a href="collections.html">Hoodies</a></li>
-    <li><a href="collections.html">Accessories</a></li>
-    <li><a href="socials.html">Contact</a></li>
-  </ul>
-</nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="collections.html">New Arrivals</a></li>
+            <li><a href="collections.html">Best Sellers</a></li>
+            <li><a href="collections.html">T-Shirts</a></li>
+            <li><a href="collections.html">Hoodies</a></li>
+            <li><a href="collections.html">Accessories</a></li>
+            <li><a href="socials.html">Contact</a></li>
+          </ul>
+        </nav>
       </div>
+
       <h1 class="brand">ARCHÆM ÉLAN™</h1>
       <div class="search-wrap">
         <input type="search" placeholder="Search..." aria-label="Search website">
@@ -66,13 +68,23 @@
       <p>© 2026 ARCHÆM ÉLAN™ • Powered by Design & Architecture</p>
     </footer>
   </div>
-<script>
-  const menuBtn = document.querySelector('.menu-btn');
-  const nav = document.querySelector('.site-nav');
 
-  menuBtn.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-</script>
+  <div class="overlay"></div>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const nav = document.querySelector('.site-nav');
+    const overlay = document.querySelector('.overlay');
+
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      overlay.classList.toggle('show');
+    });
+
+    overlay.addEventListener('click', () => {
+      nav.classList.remove('open');
+      overlay.classList.remove('show');
+    });
+  </script>
 </body>
 </html>
