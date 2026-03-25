@@ -3,54 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Socials | ARCHÆM ÉLAN™</title>
+    <title>SOCIALS | ARCHÆM ÉLAN™</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="intro-overlay"><div class="intro-content"><h1>ARCHÆM ÉLAN</h1></div></div>
-
     <nav class="side-nav" id="sideNav">
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="collections.html">COLLECTIONS</a></li>
-            <li><a href="socials.html">SOCIAL MEDIAS</a></li>
-        </ul>
+        <a href="index.html">HOME</a>
+        <a href="collections.html">COLLECTIONS</a>
+        <a href="socials.html">SOCIAL MEDIAS</a>
     </nav>
 
     <header class="site-header">
         <div class="header-top">
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
-            <h1 class="brand">ARCHÆM ÉLAN™</h1>
-            <div style="width: 50px;"></div>
+            <div class="logo-container"><img src="logo.svg" alt="LOGO"></div>
+            <div style="width: 45px;"></div>
         </div>
     </header>
 
     <main>
-        <section class="hero" style="text-align: center;">
-            <h2>Follow ARCHÆM ÉLAN™</h2>
-            <p>Instagram: <a href="#">@archaem_elan</a></p>
-            <p>TikTok: <a href="#">@archaem.elan</a></p>
-        </section>
-
-        <section class="info-cards">
-            <article style="grid-column: span 3;">
-                <h3>Contact Us</h3>
-                <form style="display: flex; flex-direction: column; gap: 10px;">
-                    <input type="text" placeholder="Name" style="padding: 10px; border-radius: 4px; border: 1px solid var(--charcoal);">
-                    <input type="email" placeholder="Email" style="padding: 10px; border-radius: 4px; border: 1px solid var(--charcoal);">
-                    <textarea placeholder="Message" rows="4" style="padding: 10px; border-radius: 4px; border: 1px solid var(--charcoal);"></textarea>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-            </article>
-        </section>
+        <h2 style="letter-spacing: 5px; color: #3B0B2E;">CONNECT WITH US</h2>
+        <div class="social-links">
+            <a href="#" class="social-btn">Instagram</a>
+            <a href="#" class="social-btn">TikTok</a>
+            <a href="#" class="social-btn">Twitter / X</a>
+        </div>
     </main>
 
-    <footer class="site-footer">
-        <p>© 2026 ARCHÆM ÉLAN™</p>
-    </footer>
-
-    <script>
-        function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }
-    </script>
+    <footer class="site-footer"><p>© 2026 ARCHÆM ÉLAN™</p></footer>
+    <script>function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }</script>
 </body>
 </html>
