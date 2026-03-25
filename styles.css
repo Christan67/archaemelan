@@ -1,9 +1,9 @@
 :root {
     --eggplant: #3B0B2E;        /* Primary [cite: 21] */
-    --sandstone: #D6C6A8;       /* Background [cite: 25] */
+    --sandstone: #D6C6A8;       /* Neutral Background [cite: 23, 25] */
     --sage: #8A9A8A;            /* Accents [cite: 26] */
     --charcoal: #2F2F2F;        /* Outlines [cite: 28] */
-    --dark-charcoal: #1E1E1E;   /* Text [cite: 29] */
+    --dark-charcoal: #1E1E1E;   /* Text [cite: 29, 34] */
     --white: #ffffff;
 }
 
@@ -12,7 +12,7 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--sandstone);
     color: var(--dark-charcoal);
-    overflow-x: hidden; /* Critical for hiding sidebar overflow */
+    overflow-x: hidden; 
 }
 
 /* --- THE COOLER INTRO --- */
@@ -51,14 +51,13 @@ body {
     height: 100%;
     background: var(--eggplant);
     z-index: 1000;
-    /* This moves it exactly 100% of its own width off-screen */
-    transform: translateX(100%); 
+    transform: translateX(100%); /* Moves it fully off-screen */
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 80px 20px;
 }
 
 .side-nav.open {
-    transform: translateX(0); /* Slides perfectly into view */
+    transform: translateX(0); /* Slides into view */
 }
 
 .side-nav a { 
@@ -95,30 +94,20 @@ body {
 .logo-container { justify-self: center; }
 .logo-container img { height: 50px; width: auto; display: block; }
 
-/* --- REPLACING BROKEN IMAGE SPACE --- */
+/* --- BRAND ACCENT BLOCK --- */
 .hero-accent {
     width: 100%;
     max-width: 800px;
     height: 250px;
-    background: var(--sage); /* Relevant Sage Green accent  */
+    background: var(--sage); 
     margin: 20px auto;
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
 }
 
-/* Structural decorative lines (Architectural/Clothing theme) */
-.hero-accent::after {
-    content: "";
-    width: 80%;
-    height: 1px;
-    background: rgba(255,255,255,0.3);
-}
-
-/* --- CLOTHING GRID --- */
+/* --- CLOTHING GRID (Side by Side) --- */
 .products {
     display: flex;
     flex-wrap: wrap;
