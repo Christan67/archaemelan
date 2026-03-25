@@ -2,45 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collections | ARCHÆM ÉLAN™</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Collections | ARCHÆM ÉLAN</title>
 </head>
 <body>
-    <div id="intro-overlay"><div class="intro-content"><h1>ARCHÆM ÉLAN</h1></div></div>
-
-    <nav class="side-nav" id="sideNav">
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="collections.html">COLLECTIONS</a></li>
-            <li><a href="socials.html">SOCIAL MEDIAS</a></li>
-        </ul>
-    </nav>
 
     <header class="site-header">
         <div class="header-top">
-            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            <button class="menu-btn" onclick="history.back()">☰</button>
             <div class="logo-container">
-                <img src="logo.svg" alt="ARCHÆM ÉLAN LOGO">
+                <img src="logo.svg" alt="LOGO">
             </div>
-            <div style="width: 50px;"></div>
+            <div style="width: 40px;"></div>
         </div>
     </header>
 
     <main>
-        <section class="collection">
-            <h2 style="text-align: center; margin: 40px 0;">SHIRT COLLECTION</h2>
-            <div class="products">
-                <div class="product"><h3>Charcoal Gray</h3><img src="grey.jpg" alt="Gray Shirt"></div>
-                <div class="product"><h3>Cream</h3><img src="cream.jpg" alt="Cream Shirt"></div>
-                <div class="product"><h3>Black</h3><img src="black.jpg" alt="Black Shirt"></div>
-                <div class="product"><h3>Old Heliotrope</h3><img src="old-heliotrope.jpg" alt="Heliotrope Shirt"></div>
+        <div class="brand-statement">
+            "Modern fashion inspired by structural elegance. <br> Minimal design meets luxury streetwear."
+        </div>
+
+        <div class="products">
+            <div class="product">
+                <img src="grey.jpg" alt="Charcoal Gray">
+                <h3>Charcoal Gray</h3>
             </div>
-        </section>
+            <div class="product">
+                <img src="cream.jpg" alt="Cream">
+                <h3>Cream</h3>
+            </div>
+            <div class="product">
+                <img src="black.jpg" alt="Black">
+                <h3>Black</h3>
+            </div>
+            <div class="product">
+                <img src="old-heliotrope.jpg" alt="Old Heliotrope">
+                <h3>Old Heliotrope</h3>
+            </div>
+        </div>
     </main>
 
-    <footer class="site-footer"><p>© 2026 ARCHÆM ÉLAN™</p></footer>
+    <footer class="site-footer">
+        <p>© 2026 ARCHÆM ÉLAN™</p>
+    </footer>
 
-    <script>function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }</script>
 </body>
 </html>
