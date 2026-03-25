@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUR CART | ARCHÆM ÉLAN</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <button class="menu-btn" onclick="location.href='index.html'">← BACK</button>
+            <div class="logo-container"><img src="logo.svg" alt="LOGO"></div>
+        </div>
+    </header>
+
+    <main style="padding: 50px;">
+        <h2 style="font-family: 'Playfair Display'; color: var(--eggplant); font-size: 2.5rem;">Shopping Cart</h2>
+        <div id="cartItems" style="width: 100%; max-width: 800px; margin-top: 30px;">
+            </div>
+        <button class="buy-btn" style="margin-top: 20px; width: 300px;" onclick="alert('Proceeding to Checkout...')">CHECKOUT</button>
+        <button class="btn" style="margin-top: 10px; color: var(--eggplant); background: none;" onclick="clearCart()">Clear Cart</button>
+    </main>
+
+    <script>
+        function displayCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const container = document.getElementById('cartItems');
+            if(cart.length === 0) {
+                container.innerHTML = "<p>Your cart is empty.</p>";
+                return;
+            }
+            container.innerHTML = cart.map(item => `
+                <div style="display: flex; align-items: center; gap: 20px; background: white; padding: 20px; border-bottom: 1px solid #ddd;">
+                    <img src="${item.img}" style="width: 80px;">
+                    <div>
+                        <h4 style="text-transform: uppercase;">${item.title}</h4>
+                        <p>Size: ${item.size} | Qty: ${item.qty}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+        function clearCart() {
+            localStorage.removeItem('cart');
+            location.reload();
+        }
+        window.onload = displayCart;
+    </script>
+</body>
+</html>
