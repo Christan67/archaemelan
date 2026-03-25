@@ -3,26 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARCHÆM ÉLAN™ | Social Medias</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>ARCHÆM ÉLAN™ | Socials</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="page-wrapper">
     <header class="site-header">
       <div class="header-top">
         <button class="menu-btn" aria-label="Open navigation">☰</button>
-       <nav class="site-nav" aria-label="Main">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="collections.html">New Arrivals</a></li>
-    <li><a href="collections.html">Best Sellers</a></li>
-    <li><a href="collections.html">T-Shirts</a></li>
-    <li><a href="collections.html">Hoodies</a></li>
-    <li><a href="collections.html">Accessories</a></li>
-    <li><a href="socials.html">Contact</a></li>
-  </ul>
-</nav>
+        <span class="cart">🛒</span>
+        <nav class="site-nav" aria-label="Main">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="collections.html">New Arrivals</a></li>
+            <li><a href="collections.html">Best Sellers</a></li>
+            <li><a href="collections.html">T-Shirts</a></li>
+            <li><a href="collections.html">Hoodies</a></li>
+            <li><a href="collections.html">Accessories</a></li>
+            <li><a href="socials.html">Contact</a></li>
+          </ul>
+        </nav>
       </div>
+
       <h1 class="brand">ARCHÆM ÉLAN™</h1>
       <div class="search-wrap">
         <input type="search" placeholder="Search..." aria-label="Search website">
@@ -32,23 +34,17 @@
     <main>
       <section class="social-section">
         <h2>Follow ARCHÆM ÉLAN™</h2>
-        <p>Instagram: <a href="https://instagram.com/archaem_elan" target="_blank" rel="noopener">@archaem_elan</a></p>
-        <p>TikTok: <a href="https://tiktok.com/@archaem.elan" target="_blank" rel="noopener">@archaem.elan</a></p>
+        <p>Instagram: <a href="https://instagram.com/archaem_elan" target="_blank">@archaem_elan</a></p>
+        <p>TikTok: <a href="https://tiktok.com/@archaem.elan" target="_blank">@archaem.elan</a></p>
         <img src="https://via.placeholder.com/800x400?text=Social+Media+Promo" alt="Archæm Élan social media promotion">
       </section>
 
       <section class="contact-section">
         <h2>Contact Us</h2>
         <form action="mailto:info@archaem-elan.example.com" method="post" enctype="text/plain" onsubmit="alert('Message sent (simulation).');">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" rows="4" placeholder="Message" required></textarea>
           <button type="submit" class="btn">Send Message</button>
         </form>
       </section>
@@ -63,5 +59,23 @@
       <p>© 2026 ARCHÆM ÉLAN™</p>
     </footer>
   </div>
+
+  <div class="overlay"></div>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const nav = document.querySelector('.site-nav');
+    const overlay = document.querySelector('.overlay');
+
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      overlay.classList.toggle('show');
+    });
+
+    overlay.addEventListener('click', () => {
+      nav.classList.remove('open');
+      overlay.classList.remove('show');
+    });
+  </script>
 </body>
 </html>
