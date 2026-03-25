@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARCHÆM ÉLAN™ | The New Vanguard</title>
+    <title>ARCHÆM ÉLAN™</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="loader"><img src="logo.svg" alt="Loading"></div>
 
     <nav class="side-nav" id="sideNav">
         <a href="index.html">HOME</a>
@@ -26,32 +27,25 @@
     <main>
         <section class="brand-intro">
             <h1>Tailoring the New Vanguard</h1>
-            <p>Sculpted attire for the modern silhouette.</p>
+            <p>Sculpted attire for the modern silhouette</p>
             <a href="collections.html" class="btn">ENTER THE ARCHIVE</a>
         </section>
 
         <section class="info-cards">
-            <div class="card">
-                <h3>VANGUARD TEXTILES</h3>
-                <p>Curated high-density fabrics designed to maintain structure and movement.</p>
-            </div>
-            <div class="card">
-                <h3>ELITE RARITY</h3>
-                <p>Deliberate scarcity. Every garment is part of a numbered, limited-run sequence.</p>
-            </div>
-            <div class="card">
-                <h3>INNER CIRCLE</h3>
-                <p>Direct access to future concepts. Follow the evolution from sketch to seam.</p>
-            </div>
+            <div class="card"><h3>VANGUARD TEXTILES</h3><p>Curated fabrics designed to maintain structure and movement.</p></div>
+            <div class="card"><h3>ELITE RARITY</h3><p>Every garment is part of a numbered, limited-run sequence.</p></div>
+            <div class="card"><h3>INNER CIRCLE</h3><p>Follow the evolution from sketch to seam.</p></div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <p>© 2026 ARCHÆM ÉLAN™ • Modern Design</p>
-    </footer>
+    <footer class="site-footer"><p>© 2026 ARCHÆM ÉLAN™</p></footer>
 
     <script>
         function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }
+        window.addEventListener('load', () => {
+            const l = document.getElementById('loader');
+            setTimeout(() => { l.style.opacity = '0'; setTimeout(() => l.remove(), 800); }, 1000);
+        });
     </script>
 </body>
 </html>
