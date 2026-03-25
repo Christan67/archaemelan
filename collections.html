@@ -3,67 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARCHÆM ÉLAN™ | Collections</title>
+    <title>Shirt Collections</title>
+    <!-- Linking the external stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="page-wrapper">
-        <header class="site-header">
-            <div class="header-top">
-                <button class="menu-btn" id="open-menu">☰ MENU</button>
-                <nav class="site-nav" id="side-menu">
-                    <button class="close-menu" id="close-menu">&times;</button>
-                    <p class="menu-section-title">Primary</p>
-                    <ul>
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="collections.html">NEW ARRIVALS</a></li>
-                    </ul>
-                    <p class="menu-section-title">Collections</p>
-                    <ul>
-                        <li><a href="collections.html">MENSWEAR</a></li>
-                        <li><a href="collections.html">WOMENSWEAR</a></li>
-                    </ul>
-                    <p class="menu-section-title">Support</p>
-                    <ul>
-                        <li><a href="socials.html">CONTACT</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <h1 class="brand">OUR COLLECTIONS</h1>
-        </header>
+    <header>
+        <h1>Our Shirt Collections</h1>
+    </header>
 
-        <main>
-            <section class="collection">
-                <h2>Shirt Colors</h2>
-                <div class="products">
-                    <div class="product">
-                        <h3>Charcoal Gray</h3>
-                        <img src="grey.jpg" alt="Charcoal Gray Shirt">
-                    </div>
-                    <div class="product">
-                        <h3>Cream</h3>
-                        <img src="cream.jpg" alt="Cream Shirt">
-                    </div>
-                    <div class="product">
-                        <h3>Black</h3>
-                        <img src="black.jpg" alt="Black Shirt">
-                    </div>
-                    <div class="product">
-                        <h3>Old Heliotrope</h3>
-                        <img src="old-heliotrope.jpg" alt="Old Heliotrope Shirt">
-                    </div>
+    <main>
+        <section class="collection">
+            <h2>Shirt Colors</h2>
+            <div class="products">
+                <div class="product grey">
+                    <h3>Charcoal Gray Shirt</h3>
+                    <img src="grey.jpg" alt="Charcoal Gray Shirt">
                 </div>
-            </section>
-        </main>
+                <div class="product cream">
+                    <h3>Cream Shirt</h3>
+                    <img src="cream.jpg" alt="Cream Shirt">
+                </div>
+                <div class="product black">
+                    <h3>Black Shirt</h3>
+                    <img src="black.jpg" alt="Black Shirt">
+                </div>
+                <div class="product old-heliotrope">
+                    <h3>Old Heliotrope Shirt</h3>
+                    <img src="old-heliotrope.jpg" alt="Old Heliotrope Shirt">
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <footer class="site-footer">
-            <p>&copy; 2026 ARCHÆM ÉLAN™. All rights reserved.</p>
-        </footer>
-    </div>
-
-    <script>
-        document.getElementById('open-menu').onclick = () => document.getElementById('side-menu').classList.add('active');
-        document.getElementById('close-menu').onclick = () => document.getElementById('side-menu').classList.remove('active');
-    </script>
+    <footer>
+        <p>&copy; 2026 Shirt Collection. All rights reserved.</p>
+    </footer>
 </body>
 </html>
