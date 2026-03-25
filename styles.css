@@ -1,8 +1,8 @@
 :root {
-    --eggplant: #3B0B2E;        /* Headers/Nav */
-    --sandstone: #D6C6A8;       /* Main Background */
-    --slate: #4A5D6E;           /* NEW: Sophisticated Accent */
-    --charcoal: #2F2F2F;        /* Outlines */
+    --eggplant: #3B0B2E;        /* Primary: Headers & Nav */
+    --sandstone: #D6C6A8;       /* Neutral Background */
+    --slate-blue: #4A5D6E;      /* Appealing Accent */
+    --charcoal: #2F2F2F;        /* Outlines & Dividers */
     --dark-charcoal: #1E1E1E;   /* Body Text */
     --white: #ffffff;
 }
@@ -11,108 +11,92 @@
 
 body {
     margin: 0;
-    font-family: 'Inter', 'Helvetica', sans-serif;
-    background-color: var(--sandstone);
-    color: var(--dark-charcoal);
-    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--sandstone); /* [cite: 85] */
+    color: var(--dark-charcoal); /* [cite: 88, 106] */
+    overflow-x: hidden; 
 }
 
-/* --- THE INTRO --- */
+/* --- COOLER INTRO --- */
 #intro-overlay {
     position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background: var(--eggplant);
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--eggplant); /* [cite: 86] */
     z-index: 9999;
     display: flex; justify-content: center; align-items: center;
-    animation: slideAway 1s cubic-bezier(0.8, 0, 0.2, 1) forwards 2s;
+    animation: slideUp 1s cubic-bezier(0.8, 0, 0.2, 1) forwards 2s;
 }
 .intro-content h1 {
     color: var(--sandstone);
     font-size: 3rem;
-    letter-spacing: 12px;
+    letter-spacing: 15px;
     text-transform: uppercase;
 }
-@keyframes slideAway { to { transform: translateY(-100%); visibility: hidden; } }
+@keyframes slideUp { to { transform: translateY(-100%); visibility: hidden; } }
 
 /* --- SIDEBAR (Hard-Locked Offscreen) --- */
 .side-nav {
     position: fixed;
-    top: 0; 
-    right: -350px; 
-    width: 300px; 
-    height: 100%;
-    background: var(--eggplant);
+    top: 0; right: 0;
+    width: 300px; height: 100%;
+    background: var(--eggplant); /* [cite: 102] */
     z-index: 1000;
-    transition: transform 0.5s ease-in-out;
+    transform: translateX(100%); /* Mathematically hidden */
+    transition: transform 0.4s ease-in-out;
     padding: 80px 20px;
 }
-.side-nav.open { transform: translateX(-350px); }
-.side-nav a { color: var(--sandstone); text-decoration: none; display: block; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.side-nav.open { transform: translateX(0); }
+.side-nav a { 
+    color: var(--sandstone); 
+    text-decoration: none; 
+    display: block; 
+    padding: 15px; 
+    border-bottom: 1px solid rgba(255,255,255,0.1); 
+}
 
 /* --- HEADER & CENTERED LOGO --- */
 .site-header {
-    background: var(--eggplant);
+    background: var(--eggplant); /* [cite: 86] */
     padding: 15px 20px;
 }
 .header-top { display: flex; justify-content: space-between; align-items: center; position: relative; }
 
-.logo-container { 
-    position: absolute; 
-    left: 50%; 
-    transform: translateX(-50%); 
-}
-.logo-container img { height: 45px; display: block; }
-
-/* --- CLEAN BURGER MENU (No box) --- */
 .menu-btn { 
     background: transparent; 
-    border: none; /* REMOVED WHITE BOX */
+    border: none; /* Removed the white box */
     color: var(--white); 
-    font-size: 30px; 
+    font-size: 32px; 
     cursor: pointer; 
     z-index: 10;
-    padding: 0;
 }
 
-/* --- NEW SLATE ACCENT (Fills empty space) --- */
+.logo-container { position: absolute; left: 50%; transform: translateX(-50%); }
+.logo-container img { height: 45px; display: block; }
+
+/* --- BRAND ACCENT (Sleek Slate Blue) --- */
 .hero-accent {
-    width: 100%;
-    max-width: 900px;
+    width: 90%; max-width: 900px;
     height: 300px;
-    background: var(--slate); /* Updated appealing accent */
+    background: var(--slate-blue);
     margin: 40px auto;
     display: flex; align-items: center; justify-content: center;
-    border-radius: 2px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-radius: 4px;
 }
-.hero-accent span { color: var(--sandstone); letter-spacing: 8px; font-weight: 300; font-size: 1.2rem; }
+.hero-accent span { color: var(--sandstone); letter-spacing: 10px; font-weight: 300; }
 
-/* --- GRID & CARDS --- */
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-}
-.product { width: 200px; text-align: center; }
-.product img { width: 100%; height: auto; border: 1px solid var(--charcoal); border-radius: 2px; }
-
+/* --- INFO CARDS --- */
 .info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 40px 20px;
 }
 .info-cards article {
-    background: rgba(255,255,255,0.25);
-    padding: 35px;
-    border-radius: 4px;
-    border-bottom: 4px solid var(--slate); /* Slate accent bottom */
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px; width: 300px;
+    border-radius: 8px;
+    border-bottom: 4px solid var(--slate-blue);
 }
-.btn { background: var(--eggplant); color: white; padding: 16px 35px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
-.btn:hover { background: var(--slate); color: var(--sandstone); }
 
-.site-footer { background: var(--charcoal); color: white; text-align: center; padding: 40px; margin-top: 50px; }
+.btn { 
+    background: var(--eggplant); color: white; padding: 15px 35px; 
+    text-decoration: none; display: inline-block; font-weight: bold;
+}
+.site-footer { background: var(--charcoal); color: white; text-align: center; padding: 30px; }
