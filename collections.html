@@ -7,11 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="intro-overlay">
-        <div class="intro-content">
-            <h1>ARCHÆM ÉLAN</h1>
-        </div>
-    </div>
+    <div id="intro-overlay"><div class="intro-content"><h1>ARCHÆM ÉLAN</h1></div></div>
 
     <nav class="side-nav" id="sideNav">
         <ul>
@@ -22,45 +18,31 @@
     </nav>
 
     <header class="site-header">
-        <h1 class="brand">ARCHÆM ÉLAN™</h1>
-        <button class="menu-btn" onclick="toggleMenu()" aria-label="Open Menu">☰</button>
+        <div class="header-top">
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            <h1 class="brand">ARCHÆM ÉLAN™</h1>
+            <div style="width: 50px;"></div>
+        </div>
     </header>
 
     <main>
-    <section class="collection">
-        <h2>Shirt Colors</h2>
-        <div class="products">
-            <div class="product">
-                <h3>Charcoal Gray</h3>
-                <img src="grey.jpg" alt="Gray Shirt">
+        <section class="collection">
+            <h2 style="text-align: center; margin-bottom: 30px;">Shirt Colors</h2>
+            <div class="products">
+                <div class="product"><h3>Charcoal Gray</h3><img src="grey.jpg" alt="Gray"></div>
+                <div class="product"><h3>Cream</h3><img src="cream.jpg" alt="Cream"></div>
+                <div class="product"><h3>Black</h3><img src="black.jpg" alt="Black"></div>
+                <div class="product"><h3>Old Heliotrope</h3><img src="old-heliotrope.jpg" alt="Heliotrope"></div>
             </div>
-            <div class="product">
-                <h3>Cream</h3>
-                <img src="cream.jpg" alt="Cream Shirt">
-            </div>
-            <div class="product">
-                <h3>Black</h3>
-                <img src="black.jpg" alt="Black Shirt">
-            </div>
-            <div class="product">
-                <h3>Old Heliotrope</h3>
-                <img src="old-heliotrope.jpg" alt="Heliotrope Shirt">
-            </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
 
     <footer class="site-footer">
-        <p>© 2026 ARCHÆM ÉLAN™ • Design Inspiration [cite: 17]</p>
+        <p>© 2026 ARCHÆM ÉLAN™</p>
     </footer>
 
     <script>
-        function toggleMenu() {
-            const nav = document.getElementById('sideNav');
-            const btn = document.querySelector('.menu-btn');
-            nav.classList.toggle('open');
-            btn.innerHTML = nav.classList.contains('open') ? '✕' : '☰';
-        }
+        function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }
     </script>
 </body>
 </html>
