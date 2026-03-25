@@ -22,31 +22,100 @@
     </header>
 
     <main class="collections-container">
-        <h2 class="section-title" style="margin: 40px 0; text-align:center; letter-spacing:5px;">THE ARCHIVE</h2>
+        <h2 class="section-title" style="margin: 60px 0; text-align:center; letter-spacing:8px; color:var(--eggplant);">THE ARCHIVE</h2>
 
-        <p style="text-align:center; letter-spacing:3px; font-weight:bold; margin-bottom:20px; color:var(--eggplant);">SHIRTS</p>
+        <p style="text-align:center; letter-spacing:4px; font-weight:bold; margin-bottom:30px; color:var(--eggplant);">SHIRTS</p>
         <div class="products-grid">
-            <div class="product-card"><img src="grey.jpg"><h3>Charcoal Grey</h3></div>
-            <div class="product-card"><img src="cream.jpg"><h3>Cream</h3></div>
-            <div class="product-card"><img src="black.jpg"><h3>Black</h3></div>
-            <div class="product-card"><img src="old-heliotrope.jpg"><h3>Old Heliotrope</h3></div>
+            <div class="product-card" onclick="openModal('Charcoal Grey', 'grey.jpg', 'Structural precision in heavyweight charcoal. This signature shirt features high-density weave and architectural seams.')">
+                <img src="grey.jpg"><h3>Charcoal Grey</h3>
+            </div>
+            <div class="product-card" onclick="openModal('Cream', 'cream.jpg', 'Minimalist alabaster cotton. A clean-cut essential that defines modern sculptural attire.')">
+                <img src="cream.jpg"><h3>Cream</h3>
+            </div>
+            <div class="product-card" onclick="openModal('Black', 'black.jpg', 'The definitive archive piece. Pure midnight black cotton with a reinforced silhouette.')">
+                <img src="black.jpg"><h3>Black</h3>
+            </div>
+            <div class="product-card" onclick="openModal('Old Heliotrope', 'old-heliotrope.jpg', 'A vintage-inspired hue with vanguard structure. Designed for deep-tone coordination.')">
+                <img src="old-heliotrope.jpg"><h3>Old Heliotrope</h3>
+            </div>
         </div>
 
-        <p style="text-align:center; letter-spacing:3px; font-weight:bold; margin: 40px 0 20px; color:var(--eggplant);">HOODIES</p>
+        <p style="text-align:center; letter-spacing:4px; font-weight:bold; margin: 60px 0 30px; color:var(--eggplant);">HOODIES</p>
         <div class="products-grid">
-            <div class="product-card"><img src="wht hoodie.jpg"><h3>White Hoodie</h3></div>
-            <div class="product-card"><img src="camou hoodie.jpg"><h3>Camou Hoodie</h3></div>
-            <div class="product-card"><img src="blck hoodie.jpg"><h3>Black Hoodie</h3></div>
-            <div class="product-card"><img src="cropped hoodie.jpg"><h3>Cropped Hoodie</h3></div>
+            <div class="product-card" onclick="openModal('White Hoodie', 'wht hoodie.jpg', 'Architectural purity in pure white. Engineered with double-fleece lining to maintain a crisp, sculpted shape.')">
+                <img src="wht hoodie.jpg"><h3>White Hoodie</h3>
+            </div>
+            <div class="product-card" onclick="openModal('Camo Hoodie', 'camou hoodie.jpg', 'Urban tactical sequence. A custom camouflage textile with heavy-duty ribbing and drop-shoulder construction.')">
+                <img src="camou hoodie.jpg"><h3>Camo Hoodie</h3>
+            </div>
+            <div class="product-card" onclick="openModal('Black Hoodie', 'blck hoodie.jpg', 'Midnight vanguard fleece. The ultimate heavyweight staple, featuring a deep-arch design and reinforced cuffs.')">
+                <img src="blck hoodie.jpg"><h3>Black Hoodie</h3>
+            </div>
+            <div class="product-card" onclick="openModal('Cropped Hoodie', 'cropped hoodie.jpg', 'The geometric peak of our hoodie archive. A high-fashion cropped cut designed for structural layering.')">
+                <img src="cropped hoodie.jpg"><h3>Cropped Hoodie</h3>
+            </div>
         </div>
-        </main>
-    
+    </main>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-img"><img id="modalImg" src=""></div>
+            <div class="modal-info">
+                <h2 id="modalTitle" style="font-family: 'Playfair Display'; font-size: 2rem; margin-bottom:15px;"></h2>
+                <p id="modalDesc" style="font-size: 1rem; line-height: 1.8; color: var(--charcoal);"></p>
+                
+                <div class="size-selector">
+                    <label>SELECT ARCHIVE SIZE</label>
+                    <select id="sizeSelect">
+                        <option>SMALL</option>
+                        <option>MEDIUM</option>
+                        <option>LARGE</option>
+                        <option>EXTRA LARGE</option>
+                    </select>
+                </div>
+
+                <button class="buy-btn" onclick="addToCart()">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+
     <footer class="site-footer"><p>© 2026 ARCHÆM ÉLAN™ • Modern Design</p></footer>
 
     <script>
         function toggleMenu() { document.getElementById('sideNav').classList.toggle('open'); }
+        
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        window.onload = () => { document.getElementById('cart-count').innerText = cart.length; };
+        let selectedProduct = {};
+
+        function openModal(title, img, desc) {
+            selectedProduct = { title, img, desc };
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalImg').src = img;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeModal() { document.getElementById('productModal').style.display = 'none'; }
+
+        function addToCart() {
+            const size = document.getElementById('sizeSelect').value;
+            const item = { ...selectedProduct, size: size };
+            cart.push(item);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            document.getElementById('cart-count').innerText = cart.length;
+            alert(`${item.title} (${size}) has been added to your cart.`);
+            closeModal();
+        }
+
+        window.onload = () => { 
+            document.getElementById('cart-count').innerText = cart.length; 
+        };
+
+        // Close modal if user clicks the dark background
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('productModal')) { closeModal(); }
+        }
     </script>
 </body>
 </html>
