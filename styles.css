@@ -206,11 +206,14 @@ main {
 
 @media (max-width: 760px) {
   .site-nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
   .site-nav a {
+    display: block;
+padding: 10px;
     margin-bottom: 6px;
   }
 
@@ -236,7 +239,19 @@ main {
 }
 /* BURGER MENU FUNCTION */
 .site-nav {
-  display: none;
+  position: fixed;
+  top: 0;
+  left: -250px; /* hidden */
+  width: 250px;
+  height: 100%;
+  background: #1a1a1a; /* darker than site */
+  padding: 20px;
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.site-nav.open {
+  left: 0;
 }
 
 .site-nav.open {
